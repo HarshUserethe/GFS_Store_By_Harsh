@@ -1,0 +1,14 @@
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ html,body{
+  width: "100%";
+  height:"100%"
+ }
+ .cl-internal-y44tp9:has(div:only-child) {
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: none;
+}
