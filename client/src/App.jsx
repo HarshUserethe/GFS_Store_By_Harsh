@@ -11,7 +11,7 @@ import About from "./pages/About";
 import TermsAndCondition from "./pages/TermsAndCondition";
 import TermsPage from "./pages/TermsPage";
 import ContactForm from "./pages/ContactUs";
-import PaypalSuccess from "./pages/paypalSuccess";
+import PaypalSuccess from "./pages/PaypalSuccess";
 import AppWrapper from "./hooks/AppWrapper";
 
 function App() {
