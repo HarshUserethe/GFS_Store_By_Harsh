@@ -21,7 +21,7 @@ import { MagnifyingGlass } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-router-dom";
-import PaymentMode from "../components/paymentMode";
+import PaymentMode from "../components/PaymentMode";
 import { usePayment } from "../context/PaymentContext";
 import HowToPurchaseImage from '../assets/how_to_purchase.png'
 
