@@ -26,7 +26,7 @@ const { AppProjection } = require('./routes/global/appProjection.js');
 
 
   //Cors
-  const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.66:5173', 'https://gfs-factory.vercel.app/'];
+  const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.66:5173', 'https://gfs-factory.vercel.app'];
   const corsOptions = {
       origin: function (origin, callback) {
         // Allow requests with no origin (like mobile apps or curl requests)
