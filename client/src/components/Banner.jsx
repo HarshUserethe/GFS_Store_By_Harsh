@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import BannerOne from '../assets/banner1.jpeg'
+import BannerOne from '../assets/banner1.jpg'
 
 const banners = [
   BannerOne,
@@ -25,7 +25,7 @@ const Banner = () => {
       >
         {banners.map((url, index) => (
           <SwiperSlide key={index}>
-            <img src={url} alt={`Banner ${index + 1}`} style={{ width: '100%', height: 'auto' }} />
+            <img src={url} alt={`Banner ${index + 1}`} style={{ width: '100%', height: '100%', objectFit:"cover" }} />
           </SwiperSlide>
         ))}
       </Swiper>

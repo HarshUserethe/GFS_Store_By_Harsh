@@ -19,7 +19,8 @@ const Home = () => {
       <Box
         sx={{
           // Push main content to the right if drawer is present
-          paddingLeft: device === "desktop" ? "250px" : 0
+          paddingLeft: device === "desktop" ? "250px" : 0,
+          backgroundColor:"#f8fafc"
         }}
       >
         {/* This content will scroll while drawer stays fixed */}

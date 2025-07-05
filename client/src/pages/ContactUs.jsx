@@ -106,12 +106,9 @@ export default function ContactForm() {
               sx={{
                 fontWeight: 600,
                 mb: 3,
-                fontSize: { xs: "2.5rem", md: "3.75rem" },
+                fontSize: { xs: "1.8rem", md: "3.75rem" },
                 lineHeight: 1.1,
-                background: "linear-gradient(135deg, #667eea, #764ba2)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+               color:"#3448c5"
               }}
             >
               Contact Us
@@ -120,7 +117,7 @@ export default function ContactForm() {
               variant="h6"
               color="text.secondary"
               sx={{
-                fontSize: { xs: "1.1rem", md: "1.25rem" },
+                fontSize: { xs: ".9rem", md: "1.25rem" },
                 lineHeight: 1.6,
                 fontWeight: 400,
               }}
@@ -148,10 +145,8 @@ export default function ContactForm() {
                     fontWeight={600}
                     gutterBottom
                     sx={{
-                      background: "linear-gradient(135deg, #667eea, #764ba2)",
-                      backgroundClip: "text",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
+                     color:"#3448c5",
+                      fontSize:"1.8rem"
                     }}
                   >
                     Get In Touch
@@ -161,7 +156,7 @@ export default function ContactForm() {
                     sx={{
                       color: "#64748b",
                       lineHeight: 1.7,
-                      fontSize: "1.1rem",
+                      fontSize: ".9rem",
                     }}
                   >
                     Turn the game on with Gosu Family Store. Contact us for a
@@ -191,13 +186,13 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5 }}
+                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
                       >
                         Email Address
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "#1e40af", fontSize: "1rem" }}
+                        sx={{ color: "#1e40af", fontSize: ".9rem" }}
                       >
                         askgosufamilystore@gmail.com
                       </Typography>
@@ -229,13 +224,13 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5 }}
+                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
                       >
                         Phone Number
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "#1e40af", fontSize: "1rem" }}
+                        sx={{ color: "#1e40af", fontSize: ".9rem" }}
                       >
                         +91 9512792875
                       </Typography>
@@ -243,7 +238,7 @@ export default function ContactForm() {
                         variant="body2"
                         sx={{ color: "#64748b", mt: 0.5 }}
                       >
-                        Available All Days, 10 AM - 6 PM
+                        Sunday OFF <br/> Saturday - 10 AM to 03 PM.
                       </Typography>
                     </Box>
                   </Box>
@@ -267,13 +262,13 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5 }}
+                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
                       >
                         Office Address
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "#64748b", fontSize: "1rem" }}
+                        sx={{ color: "#64748b", fontSize: ".9rem" }}
                       >
                         123 Gaming Street
                         <br />
@@ -301,17 +296,17 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5 }}
+                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
                       >
                         Business Hours
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "#64748b", fontSize: "1rem" }}
+                        sx={{ color: "#64748b", fontSize: ".9rem" }}
                       >
                         Contact Via Email: Anytime
                         <br />
-                        Phone: 10:00 AM to 06:00 PM
+                        Phone: 10:00 AM to 03:00 PM
                         <br />
                       </Typography>
                     </Box>
@@ -326,7 +321,7 @@ export default function ContactForm() {
               <Typography variant="h4" fontWeight={600} gutterBottom sx={{ color: '#1e293b', mb: 2 }}>
                 Send us a Message
               </Typography>
-              <Typography variant="body1" sx={{ color: '#64748b', mb: 4, fontSize: '1.1rem' }}>
+              <Typography variant="body1" sx={{ color: '#64748b', mb: 4, fontSize: '1..9rem' }}>
                 Fill out the form below and we'll get back to you as soon as possible.
               </Typography>
 
@@ -554,7 +549,7 @@ export default function ContactForm() {
                         py: 2,
                         borderRadius: '8px',
                         fontWeight: 600,
-                        fontSize: '1.1rem',
+                        fontSize: '1..9rem',
                         textTransform: 'none',
                         bgcolor: '#1e40af',
                         '&:hover': {
@@ -599,13 +594,13 @@ export default function ContactForm() {
                 variant="h5"
                 fontWeight={600}
                 gutterBottom
-                sx={{ color: "#1e293b" }}
+                sx={{ color: "#1e293b", fontSize:"1.2rem"  }}
               >
                 Need Immediate Assistance?
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ color: "#64748b", mb: 3, fontSize: "1.1rem" }}
+                sx={{ color: "#64748b", mb: 3, fontSize: "1..9rem" }}
               >
                 For urgent matters, don't hesitate to reach out to us directly
                 via phone or email.

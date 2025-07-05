@@ -42,9 +42,12 @@
   border-radius: 5px;
  }
  .signin-button{
-  background-color: #ffc107;
-    color: #000;
+  background-color: #e24c5e;
+    color: #fff;
     border: none;
     padding: 8px 20px;
     border-radius: 8px;
+    font-size: .8rem;
+    font-weight: 400;
+    box-shadow: 1px 1px 10px #e24c5e;
  }

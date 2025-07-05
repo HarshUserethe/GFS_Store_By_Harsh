@@ -30,16 +30,16 @@ const Footer = () => {
         {/* Links Section */}
         <Grid item xs={6} md={2}>
           <Stack spacing={1}>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">Support</Link>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">Contact us</Link>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">About us</Link>
+            <Link href="/contact" underline="hover" color="inherit"  variant="caption">Support</Link>
+            <Link href="/contact" underline="hover" color="inherit"  variant="caption">Contact us</Link>
+            <Link href="/about" underline="hover" color="inherit"  variant="caption">About us</Link>
           </Stack>
         </Grid>
         <Grid item xs={6} md={2}>
           <Stack spacing={1}>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">Terms of service</Link>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">Privacy Policy</Link>
-            <Link href="#" underline="hover" color="inherit"  variant="caption">Refund And Cancellation</Link>
+            <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Terms of service</Link>
+            <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Privacy Policy</Link>
+            <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Refund And Cancellation</Link>
           </Stack>
         </Grid>
 

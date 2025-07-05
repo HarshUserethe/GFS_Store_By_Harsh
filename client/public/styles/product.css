@@ -1,7 +1,7 @@
 /* Product.css */
 
 .product-page {
-    background-color: #f9f9f9;
+    background-color: #f8fafc;
     min-height: 100vh;
     padding-bottom: 80px; /* space for bottom bar */
   }
@@ -68,13 +68,14 @@
   }
   
   .purchase-btn {
-    background-color: #1976d2;
+    background-color: #5897e8;
     color: white;
     padding: 8px 16px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 10px;
+    box-shadow: 1px 1px 5px #5897e8;
   }
   
   .purchase-btn:hover {
@@ -108,6 +109,10 @@
     font-weight: 600;
     color: #1976d2;
   }
+  .input-field:focus {
+  border-color: #5897e8; /* Bootstrap blue */
+  outline: none;
+}
   
   .tab-container {
     display: flex;
@@ -120,18 +125,19 @@
   }
   
   .tab {
-    background-color: #eee;
+    background-color: #e0edff;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: .9rem;
     white-space: nowrap;
   }
   
   .tab-selected {
-    background-color: #1976d2;
+    background-color: #5897e8;
     color: white;
+    box-shadow: 1px 1px 5px #5897e8;
   }
   
   .product-grid {
@@ -204,8 +210,9 @@
   }
   
   .bottom-button {
-    background-color: #ffc107;
-    color: #000;
+     background-color: #e24c5e;
+box-shadow: 1px 1px 10px #e24c5e;
+    color: #fff;
     border: none;
     padding: 8px 20px;
     border-radius: 8px;
@@ -298,13 +305,13 @@
     background-color: rgb(255, 252, 246);
   }
   .tab-selected {
-    background-color: #1976d2;
+    background-color: #5897e8;
     color: white;
     font-size: .8rem;
 }
 
 .tab {
-    font-size: smaller !important;
+    font-size: .8rem !important;
 }
 .css-1t5k5qo{
   min-width: 150px;

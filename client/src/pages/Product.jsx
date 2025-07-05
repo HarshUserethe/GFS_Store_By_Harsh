@@ -798,6 +798,7 @@ const Tab = ({ text, selected, onClick }) => (
     className={`tab ${selected ? "tab-selected" : ""}`}
     onClick={onClick}
     type="button"
+    
   >
     {text}
   </button>

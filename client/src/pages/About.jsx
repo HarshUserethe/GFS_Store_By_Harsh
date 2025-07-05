@@ -9,7 +9,7 @@ const About = () => {
     navigate('/terms-and-condition')
     }
   return (
-    <div className="aboutus">
+    <div className="aboutus" style={{backgroundColor:"#f8fafc"}}>
       <Header />
       <style>{`
       body{
@@ -42,11 +42,8 @@ const About = () => {
 
         h1 {
           font-size: clamp(2.5rem, 5vw, 4rem);
-          font-weight: 800;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-weight: 600;
+          color: #3448c5;
           margin-bottom: 1rem;
           line-height: 1.2;
         }
@@ -69,7 +66,7 @@ const About = () => {
         }
 
         .intro strong {
-          color: #667eea;
+          color:rgb(68, 87, 214);
           font-weight: 600;
         }
 
@@ -96,8 +93,8 @@ const About = () => {
 
         .stat-number {
           font-size: clamp(2rem, 4vw, 2.5rem);
-          font-weight: 800;
-          color: #667eea;
+          font-weight: 700;
+          color: #3448c5;
           display: block;
         }
 
@@ -281,49 +278,49 @@ const About = () => {
         }
       `}</style>
 
-      <div className="content-wrapper">
+      <div className="content-wrapper" style={{backgroundColor:"#f8fafc"}}>
         <div className="hero-section">
-          <h1>About Us</h1>
-          <p className="subtitle">Your Gaming Paradise, 365 Days a Year</p>
+          <h1 style={{fontSize:"1.8rem"}}>About Us</h1>
+          <p className="subtitle" style={{fontSize:".9rem"}}>Your Gaming Paradise, Since 2020</p>
         </div>
 
-        <p className="intro">
+        <p className="intro" style={{fontSize:".9rem"}}>
           Welcome to <strong>Gosu Family Store</strong> — your ultimate destination for premium gaming experiences at unbeatable prices. We're dedicated to empowering gamers worldwide with instant access to digital gaming content, from in-game currencies to exclusive items, all year round.
         </p>
 
         <div className="stats-grid">
           <div className="stat-card">
-            <span className="stat-number">24/7</span>
-            <span className="stat-label">Always Available</span>
+            <span className="stat-number" style={{fontSize:"1.8rem"}}>24/7</span>
+            <span className="stat-label" style={{fontSize:".9rem"}}>Always Available</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">365</span>
-            <span className="stat-label">Days Per Year</span>
+            <span className="stat-number" style={{fontSize:"1.8rem"}}>2020</span>
+            <span className="stat-label" style={{fontSize:".9rem"}}>Since Year</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">100%</span>
-            <span className="stat-label">Secure Transactions</span>
+            <span className="stat-number" style={{fontSize:"1.8rem"}}>100%</span>
+            <span className="stat-label" style={{fontSize:".9rem"}}>Secure Transactions</span>
           </div>
         </div>
 
         <div className="photo-section">
           <div className="photo-frame">
             <div className="photo-card">
-              <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=Mobile+Legends" alt="Mobile Legends" />
+              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689175/67c597753236d97f8a97978d_cover_x8lk3y.png" alt="Mobile Legends" />
               <div className="photo-overlay">Mobile Legends Diamonds</div>
             </div>
             <div className="photo-card">
-              <img src="https://via.placeholder.com/400x200/764ba2/ffffff?text=PUBG+UC" alt="PUBG UC" />
+              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689173/GrH33zmX0AA_5G0_h9u5ww.webp" alt="PUBG UC" />
               <div className="photo-overlay">PUBG Mobile UC</div>
             </div>
             <div className="photo-card">
-              <img src="https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Gaming+Currency" alt="Gaming Currency" />
+              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689173/mobile-legends-thumbnail-2_qhkijm.jpg" alt="Gaming Currency" />
               <div className="photo-overlay">In-Game Currency</div>
             </div>
           </div>
         </div>
 
-        <h2>Why Choose Gosu Family Store?</h2>
+        <h2 style={{fontSize:"1.8rem"}}>Why Choose Gosu Family Store?</h2>
         
         <div className="features-grid">
           <div className="feature-card">
@@ -375,11 +372,11 @@ const About = () => {
           </div>
         </div>
 
-        <p className="closing">
+        <p className="closing" style={{fontSize:".9rem"}}>
           Join thousands of satisfied gamers who trust <strong>Gosu Family Store</strong> to enhance their gaming experience. Start your journey with us today and discover why we're the preferred choice for smart gamers worldwide!
         </p>
        <div onClick={handleTermsAndCondition} style={{width:"100%", textAlign:"center", marginTop:"15px", color:"Blue", cursor:"pointer"}}>
-         <p> Terms & Conditions</p>
+         <p style={{fontSize:".9rem"}}> Terms & Conditions</p>
        </div>
       </div>
     </div>

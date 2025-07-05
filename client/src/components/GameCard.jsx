@@ -118,8 +118,8 @@ function GameCard({ item }) {
           style={{
             width: "100%",
             padding: "6px 0", // Smaller padding
-            backgroundColor: "#ffc107",
-            color: "#1a1a2e",
+            backgroundColor: "#5897e8",
+            color: "#fff",
             fontSize: "10px", // Smaller font
             fontWeight: "bold",
             borderRadius: "4px", // Smaller border radius
@@ -127,6 +127,7 @@ function GameCard({ item }) {
             cursor: "pointer",
             position: "relative",
             top: "-2px",
+            boxShadow: "1px 1px 5px #5897e8",
           }}
         >
           TOP UP

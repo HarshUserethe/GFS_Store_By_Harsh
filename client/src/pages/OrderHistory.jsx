@@ -3,6 +3,7 @@ import axios from "axios";
 const apiurl = import.meta.env.VITE_API_KEY;
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
+import '../../public/styles/global.css';
 import {
   Box,
   Typography,
@@ -143,7 +144,7 @@ const formatedDate = (dateString) => {
 
 
   return (
-    <div className="order-history">
+    <div className="order-history" style={{backgroundColor:"#f8fafc"}}>
     <Header />
         <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Container maxWidth="md" sx={{ py: 4 }}>
