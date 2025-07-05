@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "../components/Header";
+import Underlay from "../components/Underlay";
 
 const TermsAndConditions = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const TermsAndConditions = () => {
   return (
     <>
       <div>
+    
         <style>{`
           .terms-container {
             max-width: 1200px;
@@ -19,11 +21,11 @@ const TermsAndConditions = () => {
           }
 
           .content-wrapper {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
+           
+            backdrop-filter: blur(0px);
+            border-radius: 0px;
             padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+           
           }
 
           .header-section {
@@ -36,14 +38,14 @@ const TermsAndConditions = () => {
           h1 {
             font-size: clamp(1.8rem, 5vw, 3.5rem);
             font-weight: 600;
-            color:#3448c5;
+            color:#fff;
             margin-bottom: .9rem;
             line-height: 1.2;
           }
 
           .subtitle {
             font-size: clamp(.9rem, 2vw, 1.2rem);
-            color: #6b7280;
+            color: #dfdfdf;
             font-weight: 500;
             max-width: 600px;
             margin: 0 auto;
@@ -128,7 +130,7 @@ const TermsAndConditions = () => {
             color: #4b5563;
             margin: 0.8rem 0;
             padding: .9rem .9rem;
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            background: linear-gradient(135deg, #efeef3, #e2e8f0);
             border-radius: 12px;
             border-left: 3px solid #667eea;
             position: relative;

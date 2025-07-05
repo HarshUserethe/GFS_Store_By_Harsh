@@ -39,6 +39,7 @@ import {
 } from "@mui/icons-material";
 import { LuHistory } from "react-icons/lu";
 import { ProgressBar } from "react-loader-spinner";
+import Underlay from "../components/Underlay";
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
@@ -144,10 +145,11 @@ const formatedDate = (dateString) => {
 
 
   return (
-    <div className="order-history" style={{backgroundColor:"#f8fafc"}}>
+    <div className="order-history" style={{backgroundColor:"#efeef3"}}>
+    <Underlay />
     <Header />
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Container maxWidth="md" sx={{ py: 4 }}>
+      <Container maxWidth="md" sx={{ py: 4, position:"absolute" }}>
         <Typography
           variant="h4"
           component="h1"
@@ -160,6 +162,7 @@ const formatedDate = (dateString) => {
             display: "flex",
             justifyContent: "start",
             alignItems: "center",
+            color:"#fff"
           }}
         >
           <LuHistory size={18} /> My Orders
@@ -168,71 +171,15 @@ const formatedDate = (dateString) => {
           variant="h4"
           component="h1"
           gutterBottom
-          sx={{ fontWeight: 500, fontSize: ".8rem", textAlign: "left" }}
+          sx={{ fontWeight: 500, fontSize: ".8rem", textAlign: "left", color:"#fff" }}
         >
           Summary of your recent and past orders.
         </Typography>
 
-        <Divider></Divider>
+        <Divider sx={{backgroundColor:"#fff"}}></Divider>
         {/* Date Filter */}
-        <Box sx={{ mb: 3 }}>
-          {/* <Button
-            startIcon={<FilterIcon />}
-            endIcon={
-              isFilterOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
-            }
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            variant="outlined"
-            size="small"
-            sx={{ mb: 1 }}
-          >
-            Filter by date
-          </Button> */}
-
-          {/* <Collapse in={isFilterOpen}>
-            <Paper elevation={0} variant="outlined" sx={{ p: 3, mt: 1 }}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <DatePicker
-                    label="From"
-                    value={startDate}
-                    onChange={(newValue) => setStartDate(newValue)}
-                    renderInput={(params) => (
-                      <TextField {...params} fullWidth size="small" />
-                    )}
-                    components={{
-                      OpenPickerIcon: CalendarIcon,
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <DatePicker
-                    label="To"
-                    value={endDate}
-                    onChange={(newValue) => setEndDate(newValue)}
-                    renderInput={(params) => (
-                      <TextField {...params} fullWidth size="small" />
-                    )}
-                    components={{
-                      OpenPickerIcon: CalendarIcon,
-                    }}
-                  />
-                </Grid>
-              </Grid>
-              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-                <Button onClick={resetFilter} sx={{ mr: 1 }} size="small">
-                  Reset
-                </Button>
-                <Button
-                  onClick={() => setIsFilterOpen(false)}
-                  variant="contained"
-                  size="small"
-                >
-                  Apply
-                </Button>
-              </Box>
-            </Paper>
-          </Collapse> */}
+        <Box sx={{ mb: 4 }}>
+          
         </Box>
 
         {/* Orders List */}
@@ -245,7 +192,7 @@ const formatedDate = (dateString) => {
             </Paper>
           ) : (
             filteredOrders.map((order) => (
-              <Card key={order._id} variant="outlined">
+              <Card key={order._id} variant="outlined" sx={{ backgroundColor:"#f7faff"}}>
                 {/* Order Header */}
                 <CardHeader
                   sx={{
@@ -412,6 +359,7 @@ const formatedDate = (dateString) => {
         </Stack>
       </Container>
     </LocalizationProvider>
+    
     </div>
   );
 };

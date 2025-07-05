@@ -554,7 +554,7 @@ const Product = () => {
         pauseOnHover
         theme="light"
       />
-      <Header />
+      <Header pcolor={"#fff"} />
 
       {/* Top Banner */}
       <div className="banner-container">
@@ -568,7 +568,7 @@ const Product = () => {
           }}
         ></div>
         <img
-          src="https://cdn.prod.website-files.com/65956e2711516206d2d1258f/66afcf00279b215f08df85ca_mlbb2.webp"
+          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751726209/mobile-legends-v0u46grjbqc6h9ga_c25ihb.jpg"
           alt="Mobile Legends Banner"
           className="banner-image"
         />

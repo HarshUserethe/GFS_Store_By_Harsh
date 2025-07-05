@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import Underlay from '../components/Underlay';
 
 const About = () => {
     const navigate = useNavigate();
@@ -9,7 +10,8 @@ const About = () => {
     navigate('/terms-and-condition')
     }
   return (
-    <div className="aboutus" style={{backgroundColor:"#f8fafc"}}>
+    <div className="aboutus" style={{backgroundColor:"#efeef3"}}>
+     <Underlay />
       <Header />
       <style>{`
       body{
@@ -27,12 +29,12 @@ const About = () => {
         }
 
         .content-wrapper {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          border-radius: 24px;
+          background: #efeef3;
+          backdrop-filter: blur(0px);
+          border-radius: 0px;
           padding: 3rem;
          
-          border: 1px solid rgba(255, 255, 255, 0.2);
+        
         }
 
         .hero-section {
@@ -43,14 +45,14 @@ const About = () => {
         h1 {
           font-size: clamp(2.5rem, 5vw, 4rem);
           font-weight: 600;
-          color: #3448c5;
+          color: #fff;
           margin-bottom: 1rem;
           line-height: 1.2;
         }
 
         .subtitle {
           font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-          color: #6b7280;
+          color: #dfdfdf;
           font-weight: 500;
           margin-bottom: 2rem;
         }
@@ -58,11 +60,12 @@ const About = () => {
         .intro {
           font-size: clamp(1rem, 2vw, 1.2rem);
           line-height: 1.7;
-          color: #374151;
+          color: #fff;
           text-align: center;
           max-width: 800px;
           margin: 0 auto 3rem;
           font-weight: 400;
+          margin-top:-1rem;
         }
 
         .intro strong {
@@ -270,6 +273,7 @@ const About = () => {
           .content-wrapper {
             padding: 1.5rem 1rem;
             margin: 0.5rem;
+            margin-top: -.5rem;
           }
 
           .stats-grid {
@@ -278,7 +282,8 @@ const About = () => {
         }
       `}</style>
 
-      <div className="content-wrapper" style={{backgroundColor:"#f8fafc"}}>
+      <div className="content-wrapper" style={{backgroundColor:"transparent"}}>
+      
         <div className="hero-section">
           <h1 style={{fontSize:"1.8rem"}}>About Us</h1>
           <p className="subtitle" style={{fontSize:".9rem"}}>Your Gaming Paradise, Since 2020</p>

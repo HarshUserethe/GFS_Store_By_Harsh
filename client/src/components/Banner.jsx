@@ -21,7 +21,7 @@ const Banner = () => {
         loop
         spaceBetween={10}
         slidesPerView={1}
-        style={{ borderRadius: 8, overflow: 'hidden' }}
+        style={{ borderRadius: 8, overflow: 'hidden', width:"100%" }}
       >
         {banners.map((url, index) => (
           <SwiperSlide key={index}>

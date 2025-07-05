@@ -26,6 +26,7 @@ import {
 } from "@mui/icons-material";
 import "../App.css";
 import Header from "../components/Header";
+import Underlay from "../components/Underlay";
 
 const countryCodes = [
   { code: "+91", label: "India" },
@@ -83,16 +84,18 @@ export default function ContactForm() {
 
   return (
     <>
+      <Underlay />
       <Header />
       <Box
         sx={{
           minHeight: "100vh",
-          bgcolor: "#f8fafc",
-          py: { xs: 4, md: 8 },
+          bgcolor: "transparent",
+          py: { xs: 3, md: 8 },
           px: 2,
+          position:"absolute"
         }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" >
           {/* Header Section */}
           <Box
             textAlign="center"
@@ -108,7 +111,7 @@ export default function ContactForm() {
                 mb: 3,
                 fontSize: { xs: "1.8rem", md: "3.75rem" },
                 lineHeight: 1.1,
-               color:"#3448c5"
+               color:"#fff"
               }}
             >
               Contact Us
@@ -120,6 +123,7 @@ export default function ContactForm() {
                 fontSize: { xs: ".9rem", md: "1.25rem" },
                 lineHeight: 1.6,
                 fontWeight: 400,
+                color:"#dfdfdf"
               }}
             >
               Get in touch with our team. We're here to help you with all your
@@ -145,8 +149,9 @@ export default function ContactForm() {
                     fontWeight={600}
                     gutterBottom
                     sx={{
-                     color:"#3448c5",
-                      fontSize:"1.8rem"
+                     color:"#fff",
+                      fontSize:"1.8rem",
+                      textAlign:"center"
                     }}
                   >
                     Get In Touch
@@ -154,14 +159,13 @@ export default function ContactForm() {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#64748b",
+                      color: "#fff",
                       lineHeight: 1.7,
                       fontSize: ".9rem",
                     }}
                   >
                     Turn the game on with Gosu Family Store. Contact us for a
-                    one-stop solution to all your game problems and keep the
-                    game's life rolling.
+                    one-stop solution to all your game problems.
                   </Typography>
                 </Box>
 

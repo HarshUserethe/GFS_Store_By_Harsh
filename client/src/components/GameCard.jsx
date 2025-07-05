@@ -93,8 +93,8 @@ function GameCard({ item }) {
       >
         <h3
           style={{
-            fontSize: "12px", // Smaller font
-            fontWeight: "bold",
+            fontSize: ".72rem", // Smaller font
+            fontWeight: "500",
             color: "white",
             margin: "0",
             position: "relative",

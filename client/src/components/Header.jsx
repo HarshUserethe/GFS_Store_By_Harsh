@@ -31,7 +31,7 @@ import BrandLogo from "../assets/GFSLOGO.png";
 import { useUserId } from "../context/UserContext";
 import useDeviceType from "../hooks/useDeviceType";
 
-const Header = () => {
+const Header = ({pcolor}) => {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { isSignedIn, user } = useUser();
@@ -71,19 +71,19 @@ const Header = () => {
       justifyContent="space-between"
       alignItems="center"
       p={2}
-      sx={{backgroundColor:"#"}}
+      sx={{backgroundColor: pcolor ? pcolor : "#4a89dc"}}
     >
       <Box
         sx={{
-          border: "1px solid #dfdfdf",
+          border: pcolor ? "1px solid #5897e8" : "1px solid #fff",
           borderRadius: "5px",
-          boxShadow: ".5px .5px 8px rgba(0, 0, 0, 0.06)",
-        
+          boxShadow: pcolor ? ".5px .5px 8px rgba(88, 150, 232, 0.27)" : ".5px .5px 8px rgba(0, 0, 0, 0.06)",
+          zIndex:5
         }}
       >
         {device === "mobile" ? (
           <IconButton onClick={toggleDrawer(true)}>
-            <LuMenu size={22} color="black" />
+            <LuMenu size={22} color={pcolor ? "#5897e8" : "#fff"} />
           </IconButton>
         ) : ""}
       </Box>
@@ -92,7 +92,7 @@ const Header = () => {
 
       <SignedOut>
         <SignInButton mode="modal">
-          <button className="signin-button">Sign In</button>
+          <button className="signin-button" style={{position:"absolute", right:"5%"}}>Sign In</button>
         </SignInButton>
       </SignedOut>
       <>
