@@ -6,37 +6,37 @@ import '../App.css';
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: '#000', color: '#fff', p: 4 }}>
-      <Grid container spacing={4}>
+    <Box sx={{ bgcolor: '#efeef3 ', color: '#fff', p: 2 }}>
+      <Grid container spacing={4} sx={{backgroundColor:"#fff", borderRadius:"15px", paddingBottom:"20px", padding:"20px"}}>
         {/* Logo and Socials */}
         <Grid item xs={12} md={4}>
           <Stack direction="row" alignItems="center" spacing={1}>
 
             <Box sx={{width:400}}>
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>GOSU FAMILY</Typography>
-              <Typography variant="caption" sx={{ letterSpacing: 2 }}>STORE OFFICIAL</Typography>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', color:'#000', fontSize:"1.1rem" }}>GOSU FAMILY</Typography>
+              <Typography variant="caption" sx={{ letterSpacing: 2, color:'#000' }}>STORE OFFICIAL</Typography>
             </Box>
           </Stack>
 
-          <Typography sx={{ mt: 2, mb: 1 }}>Follow us on:-</Typography>
+          <Typography sx={{ mt: 2, mb: 1, color:'#000', fontSize: ".8rem" }}>FOLLOW US ON:-</Typography>
           <Stack direction="row" spacing={2}>
-            <Facebook />
-            <Instagram />
-            <Twitter />
-            <YouTube />
+            <Facebook sx={{color:'#000'}} />
+            <Instagram  sx={{color:'#000'}} />
+            <Twitter  sx={{color:'#000'}} />
+            <YouTube  sx={{color:'#000'}}/>
           </Stack>
         </Grid>
 
         {/* Links Section */}
         <Grid item xs={6} md={2}>
-          <Stack spacing={1}>
-            <Link href="/contact" underline="hover" color="inherit"  variant="caption">Support</Link>
+          <Stack spacing={1}  sx={{color:'#000'}}>
+            <Link href="/contact" underline="hover" color="inherit"  variant="caption" >Support</Link>
             <Link href="/contact" underline="hover" color="inherit"  variant="caption">Contact us</Link>
             <Link href="/about" underline="hover" color="inherit"  variant="caption">About us</Link>
           </Stack>
         </Grid>
         <Grid item xs={6} md={2}>
-          <Stack spacing={1}>
+          <Stack spacing={1}  sx={{color:'#000'}}>
             <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Terms of service</Link>
             <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Privacy Policy</Link>
             <Link href="/terms-and-condition" underline="hover" color="inherit"  variant="caption">Refund And Cancellation</Link>
@@ -45,12 +45,13 @@ const Footer = () => {
 
         {/* Payments */}
     <Grid item xs={12} md={4}>
-  <Typography sx={{ mb: 1 }}>Payment method supported</Typography>
+  <Typography sx={{ mb: 1, color:"gray", fontSize:".8rem", fontWeight:"400"}}>PAYMENT METHOD SUPPORTED</Typography>
   <Box
     display="grid"
     gridTemplateColumns="repeat(3, 1fr)"
     gap={2}
     justifyItems="center"
+    
   >
     {[
       {
@@ -90,6 +91,7 @@ const Footer = () => {
           backgroundColor: "#fff",
           padding: 1,
           borderRadius: 1,
+          border:"1px solid #dfdfdf"
         }}
       />
     ))}
@@ -97,6 +99,7 @@ const Footer = () => {
 </Grid>
 
       </Grid>
+      <Typography sx={{textAlign:"center", padding:"10px", color:"gray", fontSize:".8rem", fontWeight:"400"}}>Since 2020</Typography>
     </Box>
   );
 };

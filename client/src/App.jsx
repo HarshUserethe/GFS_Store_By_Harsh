@@ -13,6 +13,7 @@ import TermsPage from "./pages/TermsPage";
 import ContactForm from "./pages/ContactUs";
 import PaypalSuccess from "./pages/PaypalSuccess";
 import AppWrapper from "./hooks/AppWrapper";
+import NotAvailable from "./components/NotAvailable";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/terms-and-condition" element={<TermsPage />} />
             <Route path="/contact" element={<ContactForm />} />
+            <Route path="*" element={<NotAvailable />} />
           </Routes>
           </AppWrapper>
         </PaymentProvider>
