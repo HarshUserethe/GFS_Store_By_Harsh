@@ -8,6 +8,7 @@ const clienturl = import.meta.env.VITE_CLIENT_DOMAIN;
 import debounce from "lodash/debounce";
 import { Button } from "@mui/material";
 import { LuBadgeCent, LuBadgeCheck, LuInfo, LuCircleX } from "react-icons/lu";
+import Underlay from "../components/Underlay";
 
 import {
   SignedIn,
@@ -23,7 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-router-dom";
 import PaymentMode from "../components/PaymentMode";
 import { usePayment } from "../context/PaymentContext";
-import HowToPurchaseImage from '../assets/how_to_purchase.png'
+import HowToPurchaseImage from "../assets/how_to_purchase.png";
 
 const Product = () => {
   const paymentMethod = [
@@ -77,6 +78,10 @@ const Product = () => {
     email: "",
     customerName: "",
   });
+  const styles = {
+    position: "absolute",
+    top: "60%",
+  };
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [error, setError] = useState("");
   const { paymentMode } = usePayment();
@@ -171,8 +176,6 @@ const Product = () => {
       productList.some((p) => p.id === prd.id) && prd.category === selectedTab
     );
   });
-
- 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -352,7 +355,6 @@ const Product = () => {
 
   //PAYPAL PAY --->
   const handlePayPalPayments = async () => {
-  
     const data = {
       amount: selectedProduct.dis_price,
       productName: selectedProduct.spu,
@@ -362,7 +364,7 @@ const Product = () => {
         fullName: formData.customerName,
         email: formData.email,
         location: formData.location || "",
-        mobile: formData.mobile || ""
+        mobile: formData.mobile || "",
       },
     };
 
@@ -398,12 +400,12 @@ const Product = () => {
       if (paymentOptions.includes(paymentMode)) {
         await handleUPIGateway(); //DONE
         await checkStatus(); //DONE except DB SAVED!
-        await handleCreateProduct(); 
+        await handleCreateProduct();
       } else if (paymentMode === "Binance") {
         toast.error("Binance Method Currently Unavailable");
       } else if (paymentMode === "PayPal") {
         await handlePayPalPayments();
-        await handleCreateProduct(); 
+        await handleCreateProduct();
       }
     } catch (error) {
       console.log(error);
@@ -469,7 +471,6 @@ const Product = () => {
     }
   };
 
- 
   return (
     <div className="product-page">
       <div
@@ -554,10 +555,18 @@ const Product = () => {
         pauseOnHover
         theme="light"
       />
-      <Header pcolor={"#fff"} />
+
+      <Header pcolor={"#4a89dc"} />
 
       {/* Top Banner */}
-      <div className="banner-container">
+      <div
+        className="banner-container"
+        style={{
+          height: "40dvh",
+          borderTop: "1px solid #fff",
+          borderBottom: "1px solid #fff",
+        }}
+      >
         <div
           style={{
             backgroundColor: "#000",
@@ -568,6 +577,7 @@ const Product = () => {
           }}
         ></div>
         <img
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
           src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751726209/mobile-legends-v0u46grjbqc6h9ga_c25ihb.jpg"
           alt="Mobile Legends Banner"
           className="banner-image"
@@ -592,8 +602,13 @@ const Product = () => {
         </div>
       </div>
 
+      <Underlay styling={styles} />
+
       {/* How to Purchase Button */}
-      <div className="purchase-btn-container">
+      <div
+        className="purchase-btn-container"
+        style={{ position: "absolute", right: "0%", zIndex: "15" }}
+      >
         <button
           className="purchase-btn"
           onClick={() => setShowHowToPurchaseModal(true)}
@@ -603,7 +618,15 @@ const Product = () => {
       </div>
 
       {/* Order Information */}
-      <form onSubmit={handleFormSubmit}>
+      <form
+        onSubmit={handleFormSubmit}
+        style={{
+          backgroundColor: "transparent",
+          zIndex: "10",
+          position: "relative",
+          paddingTop: "65px",
+        }}
+      >
         <div className="order-info">
           <h2 className="section-title">
             <LuInfo size={20} color="#1976d2" />
@@ -798,7 +821,6 @@ const Tab = ({ text, selected, onClick }) => (
     className={`tab ${selected ? "tab-selected" : ""}`}
     onClick={onClick}
     type="button"
-    
   >
     {text}
   </button>

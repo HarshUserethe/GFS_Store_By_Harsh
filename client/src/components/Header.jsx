@@ -85,7 +85,7 @@ const Header = ({ pcolor }) => {
       >
         <Box
           sx={{
-            border: pcolor ? "1px solid #5897e8" : "1px solid #fff",
+            border: pcolor ? "1px solid #fff" : "1px solid #fff",
             borderRadius: "5px",
             boxShadow: pcolor
               ? ".5px .5px 8px rgba(88, 150, 232, 0.27)"
@@ -95,7 +95,7 @@ const Header = ({ pcolor }) => {
         >
           {device === "mobile" ? (
             <IconButton onClick={toggleDrawer(true)}>
-              <LuMenu size={22} color={pcolor ? "#5897e8" : "#fff"} />
+              <LuMenu size={22} color={pcolor ? "#fff" : "#fff"} />
             </IconButton>
           ) : (
             ""

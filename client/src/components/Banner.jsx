@@ -6,9 +6,11 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import BannerOne from '../assets/banner1.jpg'
+import Vlog from '../assets/vlog.png' 
 
 const banners = [
   BannerOne,
+ 
 ];
 
 const Banner = () => {
@@ -21,7 +23,7 @@ const Banner = () => {
         loop
         spaceBetween={10}
         slidesPerView={1}
-        style={{ borderRadius: 8, overflow: 'hidden', width:"100%" }}
+        style={{ borderRadius: 8, overflow: 'hidden', width:"100%", height:"28dvh" }}
       >
         {banners.map((url, index) => (
           <SwiperSlide key={index}>
