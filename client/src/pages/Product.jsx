@@ -90,7 +90,7 @@ const Product = () => {
   const [isVerified, setisVerified] = useState(false);
   var txnId = "";
   const [isValidating, setIsValidating] = useState(false);
-
+ const [customPacks, setCustomPacks] = useState([]);
   const { isSignedIn, user, isLoaded } = useUser();
 
   const notify = () =>
@@ -113,7 +113,9 @@ const Product = () => {
       setIsLoading(true);
       const response = await axios.get(`${apiurl}fetch-products/smileone/mlbb`);
       if (response.data.length > 0) {
+        const filteredData = response.data.filter(e => e.type === 'combo')
         setCustomProducts(response.data);
+        setCustomPacks(filteredData);
       }
     } catch (error) {
       console.log(error);
@@ -199,6 +201,7 @@ const Product = () => {
   };
 
   const handleProductSelect = (product) => {
+    console.log(product)
     setSelectedProduct(product);
     setFormData({
       ...formData,
@@ -692,22 +695,45 @@ const Product = () => {
             selected={selectedTab === "Twilight Pass"}
             onClick={() => setSelectedTab("Twilight Pass")}
           />
+
+          <Tab 
+            text="Combo Packs"
+            selected={selectedTab === "combo"}
+            onClick={() => setSelectedTab("combo")}
+          />
         </div>
 
         {/* Product Cards */}
-        <div className="product-grid">
-          {filteredProducts.map((item) => (
-            <ProductCard
-              key={item.id}
-              url={item.logoUrl}
-              amount={item.title}
-              price={item.dis_price}
-              original={item.price}
-              selected={selectedProduct && selectedProduct.id === item.id}
-              onClick={() => handleProductSelect(item)}
-            />
-          ))}
-        </div>
+      <div className="product-grid">
+  {selectedTab === "combo"
+    ? [...customPacks]
+        .sort((a, b) => a.dis_price - b.dis_price)
+        .map((item) => (
+          <ProductCard
+            key={item.comboId}
+            url={item.logoUrl}
+            amount={item.title}
+            price={item.dis_price}
+            original={item.price}
+            selected={selectedProduct && selectedProduct.comboId === item.comboId}
+            onClick={() => handleProductSelect(item)}
+          />
+        ))
+    : [...filteredProducts]
+        .sort((a, b) => a.dis_price - b.dis_price)
+        .map((item) => (
+          <ProductCard
+            key={item.id}
+            url={item.logoUrl}
+            amount={item.title}
+            price={item.dis_price}
+            original={item.price}
+            selected={selectedProduct && selectedProduct.id === item.id}
+            onClick={() => handleProductSelect(item)}
+          />
+        ))}
+</div>
+
 
         <>
           <PaymentMode mode={paymentModeData} />

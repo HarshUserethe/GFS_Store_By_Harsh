@@ -140,10 +140,10 @@ export default function ContactForm() {
             mx="auto"
           >
             {/* Left Side - Contact Information */}
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5} >
               <Box>
                 {/* Logo Section */}
-                <Box mb={5}>
+                <Box mb={5} >
                   <Typography
                     variant="h4"
                     fontWeight={600}
@@ -151,7 +151,8 @@ export default function ContactForm() {
                     sx={{
                      color:"#fff",
                       fontSize:"1.8rem",
-                      textAlign:"center"
+                      textAlign:"center",
+                      
                     }}
                   >
                     Get In Touch
@@ -159,10 +160,15 @@ export default function ContactForm() {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#fff",
+                      color: "#1e40af",
                       lineHeight: 1.7,
                       fontSize: ".9rem",
+                      backgroundColor:"#ffffffac",
+                      padding:"10px",
+                      borderRadius:"10px",
+                    
                     }}
+                    align="center"
                   >
                     Turn the game on with Gosu Family Store. Contact us for a
                     one-stop solution to all your game problems.
