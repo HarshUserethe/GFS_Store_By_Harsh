@@ -95,6 +95,57 @@ app.get("/api/paypal/capture", capturePayPalPayment);
 
 app.get("/api/app_projection", AppProjection)
 
+// database - record insertion
+const { MongoClient } = require("mongodb");
+
+// Replace with your actual connection string and DB name
+const uri = "mongodb+srv://ogvermax:3V2xprqD7HEBLsHj@cluster0.yadevlq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const dbName = "test";
+const collectionName = "smileoneproductlist";
+
+const data = [];
+
+async function insertData() {
+  const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
+
+    const result = await collection.insertMany(data);
+    console.log(`${result.insertedCount} documents inserted.`);
+  } catch (err) {
+    console.error("Error inserting data:", err.message);
+  } finally {
+    await client.close();
+  }
+}
+
+
+async function deleteDocumentsWithoutDisPrice() {
+  const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
+
+  const result = await collection.deleteMany({ type: "combo" });
+
+    console.log(`${result.deletedCount} documents deleted.`);
+  } catch (err) {
+    console.error("Error deleting documents:", err.message);
+  } finally {
+    await client.close();
+  }
+}
+
+
+ 
+
+
+
   app.listen(PORT || 3000, () => {
       console.log("Server Started At",`${PORT}`)
   })

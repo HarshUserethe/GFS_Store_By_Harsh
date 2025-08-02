@@ -28,6 +28,10 @@ import "../App.css";
 import Header from "../components/Header";
 import Underlay from "../components/Underlay";
 
+const styles = {
+  top:"10vw"
+}
+
 const countryCodes = [
   { code: "+91", label: "India" },
   { code: "+1", label: "USA" },
@@ -84,7 +88,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <Underlay />
+      <Underlay styles={styles} />
       <Header />
       <Box
         sx={{
@@ -160,10 +164,10 @@ export default function ContactForm() {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#1e40af",
+                      color: "#dfdfdf",
                       lineHeight: 1.7,
                       fontSize: ".9rem",
-                      backgroundColor:"#ffffffac",
+                      
                       padding:"10px",
                       borderRadius:"10px",
                     

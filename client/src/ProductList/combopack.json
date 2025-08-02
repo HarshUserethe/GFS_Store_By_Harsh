@@ -1,0 +1,280 @@
+[
+  {
+    "comboId": "COMBO001",
+    "title": "343 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "13", "diamonds": 86 }
+    ],
+    "totalDiamonds": 343,
+    "dis_price": 420,
+    "price": 450,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO002",
+    "title": "429 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "23", "diamonds": 172 }
+    ],
+    "totalDiamonds": 429,
+    "dis_price": 530,
+    "price": 550,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO003",
+    "title": "514 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "25", "diamonds": 257 }
+    ],
+    "totalDiamonds": 514,
+    "dis_price": 630,
+    "price": 650,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO004",
+    "title": "600 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "13", "diamonds": 86 }
+    ],
+    "totalDiamonds": 600,
+    "dis_price": 730,
+    "price": 876,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO005",
+    "title": "792 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "13", "diamonds": 86 }
+    ],
+    "totalDiamonds": 792,
+    "dis_price": 920,
+    "price": 1104,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO006",
+    "title": "878 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "23", "diamonds": 172 }
+    ],
+    "totalDiamonds": 878,
+    "dis_price": 1030,
+    "price": 1236,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO007",
+    "title": "963 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 }
+    ],
+    "totalDiamonds": 963,
+    "dis_price": 1140,
+    "price": 1368,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO008",
+    "title": "1049 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "13", "diamonds": 86 }
+    ],
+    "totalDiamonds": 1049,
+    "dis_price": 1240,
+    "price": 1488,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+   {
+    "comboId": "COMBO017",
+    "title": "1135 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "23", "diamonds": 172 }
+    ],
+    "totalDiamonds": 1135,
+    "dis_price": 1135,
+    "price": 1362,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO009",
+    "title": "1220 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "25", "diamonds": 257 }
+    ],
+    "totalDiamonds": 1220,
+    "dis_price": 1450,
+    "price": 1740,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO010",
+    "title": "1306 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "13", "diamonds": 86 }
+    ],
+    "totalDiamonds": 1306,
+    "dis_price": 1550,
+    "price": 1860,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO011",
+    "title": "1412 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "26", "diamonds": 706 }
+    ],
+    "totalDiamonds": 1412,
+    "dis_price": 1640,
+    "price": 1968,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+   {
+    "comboId": "COMBO018",
+    "title": "1584 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "23", "diamonds": 172 }
+    ],
+    "totalDiamonds": 1584,
+    "dis_price": 1584,
+    "price": 1901,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO012",
+    "title": "1669 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 }
+    ],
+    "totalDiamonds": 1669,
+    "dis_price": 1950,
+    "price": 2340,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+   {
+    "comboId": "COMBO019",
+    "title": "1841 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "23", "diamonds": 172 }
+    ],
+    "totalDiamonds": 1841,
+    "dis_price": 1841,
+    "price": 2210,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO013",
+    "title": "1926 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "26", "diamonds": 706 },
+      { "productId": "25", "diamonds": 257 },
+      { "productId": "25", "diamonds": 257 }
+    ],
+    "totalDiamonds": 1926,
+    "dis_price": 2260,
+    "price": 2712,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO014",
+    "title": "2901 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "27", "diamonds": 2195 },
+      { "productId": "26", "diamonds": 706 }
+    ],
+    "totalDiamonds": 2901,
+    "dis_price": 3310,
+    "price": 3481,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO015",
+    "title": "4394 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "28", "diamonds": 3688 },
+      { "productId": "26", "diamonds": 706 }
+    ],
+    "totalDiamonds": 4394,
+    "dis_price": 5000,
+    "price": 5273,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  },
+  {
+    "comboId": "COMBO016",
+    "title": "7727 Diamonds",
+    "type": "combo",
+    "items": [
+      { "productId": "29", "diamonds": 5532 },
+      { "productId": "27", "diamonds": 2195 }
+    ],
+    "totalDiamonds": 7727,
+    "dis_price": 8800,
+    "price": 9273,
+    "category": "Combo Pack",
+    "logoUrl": ""
+  }
+]

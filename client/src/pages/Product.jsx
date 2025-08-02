@@ -77,6 +77,7 @@ const Product = () => {
     gameName: gameName,
     email: "",
     customerName: "",
+    type: "",
   });
   const styles = {
     position: "absolute",
@@ -90,7 +91,7 @@ const Product = () => {
   const [isVerified, setisVerified] = useState(false);
   var txnId = "";
   const [isValidating, setIsValidating] = useState(false);
- const [customPacks, setCustomPacks] = useState([]);
+  const [customPacks, setCustomPacks] = useState([]);
   const { isSignedIn, user, isLoaded } = useUser();
 
   const notify = () =>
@@ -113,7 +114,7 @@ const Product = () => {
       setIsLoading(true);
       const response = await axios.get(`${apiurl}fetch-products/smileone/mlbb`);
       if (response.data.length > 0) {
-        const filteredData = response.data.filter(e => e.type === 'combo')
+        const filteredData = response.data.filter((e) => e.type === "combo");
         setCustomProducts(response.data);
         setCustomPacks(filteredData);
       }
@@ -200,14 +201,32 @@ const Product = () => {
     }
   };
 
+  // const handleProductSelect = (product) => {
+  //   console.log(product)
+  //   setSelectedProduct(product);
+  //   setFormData({
+  //     ...formData,
+  //     productId: product.id,
+  //     email: user?.primaryEmailAddress?.emailAddress,
+  //     customerName: user?.firstName + " " + user?.lastName,
+  //   });
+  // };
+
   const handleProductSelect = (product) => {
-    console.log(product)
+    // Determine the productId value to store
+    const isCombo = product?.type === "combo";
+
+    const productIdValue = isCombo
+      ? product.items?.map((item) => item.productId).filter(Boolean) // Array of productIds
+      : product.id; // Single product _id
+
     setSelectedProduct(product);
     setFormData({
       ...formData,
-      productId: product.id,
+      productId: productIdValue,
       email: user?.primaryEmailAddress?.emailAddress,
       customerName: user?.firstName + " " + user?.lastName,
+      type: isCombo ? "combo" : "single",
     });
   };
 
@@ -270,7 +289,7 @@ const Product = () => {
   const handleCreateProduct = async () => {
     try {
       setIsLoading(true);
-
+      console.log(formData);
       const response = await axios.post(`${apiurl}create-order`, formData);
 
       if (!response || !response.data) {
@@ -401,7 +420,7 @@ const Product = () => {
       }
 
       if (paymentOptions.includes(paymentMode)) {
-        await handleUPIGateway(); //DONE
+        // await handleUPIGateway(); //DONE
         await checkStatus(); //DONE except DB SAVED!
         await handleCreateProduct();
       } else if (paymentMode === "Binance") {
@@ -696,7 +715,7 @@ const Product = () => {
             onClick={() => setSelectedTab("Twilight Pass")}
           />
 
-          <Tab 
+          <Tab
             text="Combo Packs"
             selected={selectedTab === "combo"}
             onClick={() => setSelectedTab("combo")}
@@ -704,36 +723,38 @@ const Product = () => {
         </div>
 
         {/* Product Cards */}
-      <div className="product-grid">
-  {selectedTab === "combo"
-    ? [...customPacks]
-        .sort((a, b) => a.dis_price - b.dis_price)
-        .map((item) => (
-          <ProductCard
-            key={item.comboId}
-            url={item.logoUrl}
-            amount={item.title}
-            price={item.dis_price}
-            original={item.price}
-            selected={selectedProduct && selectedProduct.comboId === item.comboId}
-            onClick={() => handleProductSelect(item)}
-          />
-        ))
-    : [...filteredProducts]
-        .sort((a, b) => a.dis_price - b.dis_price)
-        .map((item) => (
-          <ProductCard
-            key={item.id}
-            url={item.logoUrl}
-            amount={item.title}
-            price={item.dis_price}
-            original={item.price}
-            selected={selectedProduct && selectedProduct.id === item.id}
-            onClick={() => handleProductSelect(item)}
-          />
-        ))}
-</div>
-
+        <div className="product-grid">
+          {selectedTab === "combo"
+            ? [...customPacks]
+                .sort((a, b) => a.dis_price - b.dis_price)
+                .map((item) => (
+                  <ProductCard
+                    key={item.comboId}
+                    url={item.logoUrl}
+                    amount={item.title}
+                    price={item.dis_price}
+                    original={item.price}
+                    selected={
+                      selectedProduct &&
+                      selectedProduct.comboId === item.comboId
+                    }
+                    onClick={() => handleProductSelect(item)}
+                  />
+                ))
+            : [...filteredProducts]
+                .sort((a, b) => a.dis_price - b.dis_price)
+                .map((item) => (
+                  <ProductCard
+                    key={item.id}
+                    url={item.logoUrl}
+                    amount={item.title}
+                    price={item.dis_price}
+                    original={item.price}
+                    selected={selectedProduct && selectedProduct.id === item.id}
+                    onClick={() => handleProductSelect(item)}
+                  />
+                ))}
+        </div>
 
         <>
           <PaymentMode mode={paymentModeData} />
