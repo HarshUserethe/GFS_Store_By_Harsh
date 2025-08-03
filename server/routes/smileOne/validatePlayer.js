@@ -9,6 +9,7 @@ const M_KEY = "ce6984d693f78ead32aa3509be845e89";
 const getRoleController = async (req, res) => {
   const { gameName, productId, userId, zoneId } = req.body;
 
+  console.log(productId)
   try {
     const time = Math.floor(Date.now() / 1000);
 
@@ -16,7 +17,7 @@ const getRoleController = async (req, res) => {
       uid: UID,
       email: EMAIL,
       product: gameName,
-      productid: productId,
+      productid: Array.isArray(productId) ? productId[0] : productId,
       userid: userId,
       zoneid: zoneId,
       time,

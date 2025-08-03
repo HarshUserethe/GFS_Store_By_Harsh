@@ -3,6 +3,9 @@ import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import Underlay from '../components/Underlay';
+const styles = {
+  top:"10vw"
+}
 
 const About = () => {
     const navigate = useNavigate();
@@ -11,7 +14,7 @@ const About = () => {
     }
   return (
     <div className="aboutus" style={{backgroundColor:"#efeef3"}}>
-     <Underlay />
+     <Underlay styles={styles} />
       <Header />
       <style>{`
       body{

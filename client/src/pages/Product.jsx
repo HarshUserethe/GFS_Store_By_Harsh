@@ -584,9 +584,7 @@ const Product = () => {
       <div
         className="banner-container"
         style={{
-          height: "40dvh",
-          borderTop: "1px solid #fff",
-          borderBottom: "1px solid #fff",
+          height: "40dvh"
         }}
       >
         <div
@@ -600,7 +598,7 @@ const Product = () => {
         ></div>
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751726209/mobile-legends-v0u46grjbqc6h9ga_c25ihb.jpg"
+          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1754231431/rpmhak9kv_1740392265954_gdzmae.avif"
           alt="Mobile Legends Banner"
           className="banner-image"
         />

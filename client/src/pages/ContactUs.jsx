@@ -127,7 +127,7 @@ export default function ContactForm() {
                 fontSize: { xs: ".9rem", md: "1.25rem" },
                 lineHeight: 1.6,
                 fontWeight: 400,
-                color:"#dfdfdf"
+                color:"#fff"
               }}
             >
               Get in touch with our team. We're here to help you with all your
@@ -164,7 +164,7 @@ export default function ContactForm() {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: "#dfdfdf",
+                      color: "#fff",
                       lineHeight: 1.7,
                       fontSize: ".9rem",
                       
