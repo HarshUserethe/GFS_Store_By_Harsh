@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import BannerOne from '../assets/banner1.jpg'
+import BannerOne from '../assets/banner1.png'
 import Vlog from '../assets/vlog.png' 
 
 const banners = [
