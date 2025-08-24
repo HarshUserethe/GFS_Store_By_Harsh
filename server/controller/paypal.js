@@ -2,7 +2,9 @@ const axios = require("axios");
 const Order = require("../models/Order");
 require("dotenv").config();
 
-// Access token generator
+/**
+ * Get PayPal Access Token
+ */
 const getAccessToken = async () => {
   const auth = Buffer.from(
     `${process.env.PAYPAL_CLIENTID}:${process.env.PAYPAL_SECRET}`
@@ -22,36 +24,90 @@ const getAccessToken = async () => {
   return response.data.access_token;
 };
 
+/**
+ * Get INR → USD Conversion Rate
+ */
 const getINRtoUSDRate = async () => {
   try {
-    const res = await axios.get("https://api.exchangerate.host/convert", {
-      params: {
-        from: "INR",
-        to: "USD",
-      },
-    });
-    return res.data.result || 0.012; // fallback to static if failed
+    const response = await axios.get("https://open.er-api.com/v6/latest/INR");
+    if (
+      response.data &&
+      response.data.result === "success" &&
+      response.data.rates &&
+      response.data.rates.USD
+    ) {
+      return response.data.rates.USD;
+    } else {
+      console.error("Unexpected INR to USD response:", response.data);
+      return 0.012; // fallback static rate
+    }
   } catch (error) {
-    console.error("Exchange rate fetch failed:", error.message);
-    return 0.012; // fallback rate
+    console.error("Failed to fetch INR to USD rate:", error.message);
+    return 0.012; // fallback static rate
   }
 };
 
-// Create PayPal Order
+/**
+ * Get Client Country Code via IP
+ */
+const getCountryByIP = async (req) => {
+  try {
+    let clientIp =
+      req.headers["x-forwarded-for"]?.split(",")[0] ||
+      req.socket?.remoteAddress ||
+      req.connection?.remoteAddress;
+
+    // Remove "::ffff:" for IPv4-mapped addresses
+    if (clientIp?.startsWith("::ffff:")) {
+      clientIp = clientIp.split(":").pop();
+    }
+
+    // If localhost, fallback to India (for local testing)
+    if (
+      clientIp === "127.0.0.1" ||
+      clientIp === "::1" ||
+      clientIp.startsWith("192.168") ||
+      clientIp.startsWith("10.")
+    ) {
+      return "IN";
+    }
+
+    const res = await axios.get(`https://ipapi.co/${clientIp}/json/`);
+    return res.data.country_code || "US";
+  } catch (error) {
+    console.error("IP lookup failed:", error.message);
+    return "US"; // fallback to USD for safety
+  }
+};
+
+/**
+ * Create PayPal Payment
+ */
 const createPayPalPayment = async (req, res) => {
   const {
     amount,
     productName,
-    receiverEmail, // Not used here but kept for structure
-    user: { _id, fullName, email, location, mobile },
+    user: { _id, fullName, email, mobile },
   } = req.body;
 
   try {
+    // Get user location based on IP
+    const countryCode = await getCountryByIP(req);
+
+    // Get conversion rate for USD if needed
+    const inrToUsdRate = await getINRtoUSDRate();
+
+    // If Indian user → use INR, else USD
+    const isIndian = countryCode === "IN";
+    const currency = isIndian ? "INR" : "USD";
+    const finalAmount = isIndian
+      ? Number(amount).toFixed(2)
+      : (Number(amount) * inrToUsdRate).toFixed(2);
+
+    // Get PayPal access token
     const accessToken = await getAccessToken();
-        const inrToUsdRate = await getINRtoUSDRate();
 
-    const usdAmount = (parseFloat(amount) * inrToUsdRate).toFixed(2);
-
+    // Create order
     const response = await axios.post(
       `${process.env.PAYPAL_BASEURL}/v2/checkout/orders`,
       {
@@ -59,8 +115,8 @@ const createPayPalPayment = async (req, res) => {
         purchase_units: [
           {
             amount: {
-              currency_code: "USD",
-              value: usdAmount
+              currency_code: currency,
+              value: finalAmount,
             },
             description: productName,
           },
@@ -89,9 +145,11 @@ const createPayPalPayment = async (req, res) => {
       }
     );
 
+    // Get PayPal approval link
     const approvalLink = response.data.links.find(
       (link) => link.rel === "approve"
     )?.href;
+
     res.status(200).json({ approvalLink });
   } catch (error) {
     console.error("Create PayPal Payment Error:", {
@@ -107,7 +165,9 @@ const createPayPalPayment = async (req, res) => {
   }
 };
 
-// Capture PayPal Payment
+/**
+ * Capture PayPal Payment
+ */
 const capturePayPalPayment = async (req, res) => {
   const {
     token,
@@ -136,6 +196,7 @@ const capturePayPalPayment = async (req, res) => {
 
     const captureDetails = captureRes.data;
 
+    // Save order in DB
     if (captureDetails.status === "COMPLETED") {
       await Order.create({
         client_txn_id: captureDetails.id,
