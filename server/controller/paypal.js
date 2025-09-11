@@ -80,6 +80,7 @@ const getCountryByIP = async (req) => {
   }
 };
 
+
 /**
  * Create PayPal Payment
  */
@@ -91,23 +92,23 @@ const createPayPalPayment = async (req, res) => {
   } = req.body;
 
   try {
-    // Get user location based on IP
+    // Detect client country from IP
     const countryCode = await getCountryByIP(req);
 
-    // Get conversion rate for USD if needed
+    // Always send USD to PayPal API
     const inrToUsdRate = await getINRtoUSDRate();
+    let finalAmount;
 
-    // If Indian user → use INR, else USD
-    const isIndian = countryCode === "IN";
-    const currency = isIndian ? "INR" : "USD";
-    const finalAmount = isIndian
-      ? Number(amount).toFixed(2)
-      : (Number(amount) * inrToUsdRate).toFixed(2);
+    if (countryCode === "IN") {
+      // Indian customer → convert INR to USD
+      finalAmount = (Number(amount) * inrToUsdRate).toFixed(2);
+    } else {
+      // Outside India → assume amount is already in USD
+      finalAmount = Number(amount).toFixed(2);
+    }
 
-    // Get PayPal access token
     const accessToken = await getAccessToken();
 
-    // Create order
     const response = await axios.post(
       `${process.env.PAYPAL_BASEURL}/v2/checkout/orders`,
       {
@@ -115,7 +116,7 @@ const createPayPalPayment = async (req, res) => {
         purchase_units: [
           {
             amount: {
-              currency_code: currency,
+              currency_code: "USD", // ✅ Always USD
               value: finalAmount,
             },
             description: productName,
@@ -145,7 +146,6 @@ const createPayPalPayment = async (req, res) => {
       }
     );
 
-    // Get PayPal approval link
     const approvalLink = response.data.links.find(
       (link) => link.rel === "approve"
     )?.href;
@@ -164,6 +164,7 @@ const createPayPalPayment = async (req, res) => {
     });
   }
 };
+
 
 /**
  * Capture PayPal Payment

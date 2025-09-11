@@ -7,7 +7,13 @@ const apiurl = import.meta.env.VITE_API_KEY;
 const clienturl = import.meta.env.VITE_CLIENT_DOMAIN;
 import debounce from "lodash/debounce";
 import { Button } from "@mui/material";
-import { LuBadgeCent, LuBadgeCheck, LuInfo, LuCircleX } from "react-icons/lu";
+import {
+  LuBadgeCent,
+  LuBadgeCheck,
+  LuInfo,
+  LuCircleX,
+  LuX,
+} from "react-icons/lu";
 import Underlay from "../components/Underlay";
 
 import {
@@ -93,6 +99,7 @@ const Product = () => {
   const [isValidating, setIsValidating] = useState(false);
   const [customPacks, setCustomPacks] = useState([]);
   const { isSignedIn, user, isLoaded } = useUser();
+  const [isPopUp, setIsPopUP] = useState(false);
 
   const notify = () =>
     toast.error("Please fill all required fields.", {
@@ -420,7 +427,7 @@ const Product = () => {
       }
 
       if (paymentOptions.includes(paymentMode)) {
-        // await handleUPIGateway(); //DONE
+        await handleUPIGateway(); //DONE
         await checkStatus(); //DONE except DB SAVED!
         await handleCreateProduct();
       } else if (paymentMode === "Binance") {
@@ -584,7 +591,7 @@ const Product = () => {
       <div
         className="banner-container"
         style={{
-          height: "40dvh"
+          height: "40dvh",
         }}
       >
         <div
@@ -649,9 +656,63 @@ const Product = () => {
       >
         <div className="order-info">
           <h2 className="section-title">
-            <LuInfo size={20} color="#1976d2" />
+            {/* Info Icon */}
+            <button
+              type="button"
+              onClick={() => setIsPopUP(true)}
+              style={{ backgroundColor: "transparent", border: "none" }}
+            >
+              <LuInfo size={20} color="#1976d2" />
+            </button>
             Order Information
           </h2>
+          {/* Popup Card */}
+          {isPopUp && (
+            <div
+              style={{
+                position: "absolute",
+                width: "60%",
+                maxWidth: "380px",
+                backgroundColor: "#fff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                borderRadius: "12px",
+                zIndex: 9999,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setIsPopUP(false)}
+                style={{
+                  position: "absolute",
+                  top: "8px",
+                  left: "8px",
+                  padding: "4px",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                aria-label="Close popup"
+              >
+                <LuX size={22} color="#333" />
+              </button>
+
+              {/* Image Inside Popup */}
+              <img
+                src="https://picsum.photos/400/250"
+                alt="Preview"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "8px",
+                  display: "block",
+                }}
+              />
+            </div>
+          )}
           <input
             type="number"
             name="userId"
@@ -663,7 +724,7 @@ const Product = () => {
           <input
             type="number"
             name="zoneId"
-            placeholder="Zone ID"
+            placeholder="Server ID"
             className="input-field"
             value={formData.zoneId}
             onChange={handleInputChange}
@@ -703,7 +764,7 @@ const Product = () => {
             onClick={() => setSelectedTab("Weekly Diamond Pass")}
           />
           <Tab
-            text="2x First Recharge Bonus"
+            text="Double Diamonds"
             selected={selectedTab === "2x First Recharge Bonus"}
             onClick={() => setSelectedTab("2x First Recharge Bonus")}
           />
@@ -712,18 +773,18 @@ const Product = () => {
             selected={selectedTab === "Twilight Pass"}
             onClick={() => setSelectedTab("Twilight Pass")}
           />
-
+          {/* 
           <Tab
             text="Combo Packs"
             selected={selectedTab === "combo"}
             onClick={() => setSelectedTab("combo")}
-          />
+          /> */}
         </div>
 
         {/* Product Cards */}
-        <div className="product-grid">
-          {selectedTab === "combo"
-            ? [...customPacks]
+        {/* <div className="product-grid">
+          {selectedTab === "Diamonds"
+            ? [...filteredProducts, ...customPacks]
                 .sort((a, b) => a.dis_price - b.dis_price)
                 .map((item) => (
                   <ProductCard
@@ -752,6 +813,33 @@ const Product = () => {
                     onClick={() => handleProductSelect(item)}
                   />
                 ))}
+        </div> */}
+
+        <div className="product-grid">
+          {(selectedTab === "Diamonds"
+            ? [...filteredProducts, ...customPacks] // Diamonds tab → merge both
+            : filteredProducts.filter((item) => item.category === selectedTab)
+          ) // Other tabs → only filtered
+            .sort((a, b) => a.dis_price - b.dis_price)
+            .map((item) => {
+              // normalize unique id for both diamonds + combos
+              const uid = item.id || item.comboId;
+              const selectedUid =
+                selectedProduct &&
+                (selectedProduct.id || selectedProduct.comboId);
+
+              return (
+                <ProductCard
+                  key={uid}
+                  url={item.logoUrl}
+                  amount={item.title}
+                  price={item.dis_price}
+                  original={item.price}
+                  selected={selectedUid === uid} // ✅ unified check
+                  onClick={() => handleProductSelect(item)}
+                />
+              );
+            })}
         </div>
 
         <>

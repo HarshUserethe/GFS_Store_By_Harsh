@@ -18,11 +18,9 @@ import {
   Email,
   Phone,
   LocationOn,
-  Send,
-  Person,
-  Message,
-  Schedule,
   Business,
+  WhatsApp,
+  Mail
 } from "@mui/icons-material";
 import "../App.css";
 import Header from "../components/Header";
@@ -147,7 +145,7 @@ export default function ContactForm() {
             <Grid item xs={12} md={5} >
               <Box>
                 {/* Logo Section */}
-                <Box mb={5} >
+                <Box mb={5} sx={{marginTop:'-5vw'}} >
                   <Typography
                     variant="h4"
                     fontWeight={600}
@@ -181,7 +179,7 @@ export default function ContactForm() {
 
                 {/* Contact Details */}
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <Box display="flex" alignItems="flex-start" gap={3}>
+                  <Box display="flex" alignItems="flex-start" gap={3} sx={{marginTop:"5vw"}}>
                     <Box
                       sx={{
                         width: 48,
@@ -219,7 +217,7 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                  <Box display="flex" alignItems="flex-start" gap={3}>
+                 <Box display="flex" alignItems="flex-start" gap={3}>
                     <Box
                       sx={{
                         width: 48,
@@ -232,7 +230,7 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <Phone sx={{ color: "#1e40af", fontSize: 24 }} />
+                      <WhatsApp sx={{ color: "#1e40af", fontSize: 24 }} />
                     </Box>
                     <Box>
                       <Typography
@@ -252,10 +250,10 @@ export default function ContactForm() {
                         variant="body2"
                         sx={{ color: "#64748b", mt: 0.5 }}
                       >
-                        Sunday OFF <br/> Saturday - 10 AM to 03 PM.
+                       Saturday - 10 AM to 03 PM <br/>  Sunday OFF
                       </Typography>
                     </Box>
-                  </Box>
+                  </Box> 
 
                   <Box display="flex" alignItems="flex-start" gap={3}>
                     <Box
@@ -286,7 +284,7 @@ export default function ContactForm() {
                       >
                         123 Gaming Street
                         <br />
-                        Tech City, TC 12345
+                        Tech City, India
                       </Typography>
                     </Box>
                   </Box>
@@ -625,18 +623,18 @@ export default function ContactForm() {
                 gap={3}
                 flexWrap="wrap"
               >
-                <Typography
+                {/* <Typography
                   variant="body1"
                   sx={{ color: "#1e40af", fontWeight: 600 }}
                 >
                   📞 +91 9512792875
 
-                </Typography>
+                </Typography> */}
                 <Typography
                   variant="body1"
-                  sx={{ color: "#1e40af", fontWeight: 600 }}
+                  sx={{ color: "#1e40af", fontWeight: 600, display:"flex", justifyContent:"center", alignItems:"center", gap:1 }}
                 >
-                  ✉️ askgosufamilystore@gmail.com
+                 <Mail /> askgosufamilystore@gmail.com
                 </Typography>
               </Box>
             </Box>
