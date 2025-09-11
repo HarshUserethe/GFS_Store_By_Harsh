@@ -186,6 +186,7 @@ const Product = () => {
       productList.some((p) => p.id === prd.id) && prd.category === selectedTab
     );
   });
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -500,6 +501,15 @@ const Product = () => {
     }
   };
 
+  // Array containing notes for each tab
+const tabNotes = {
+  "Diamonds": "Purchase diamonds to enhance your gaming experience and unlock premium features.",
+  "Weekly Diamond Pass": "Weekly diamonds Pass count as 100 in recharge tasks",
+  "2x First Recharge Bonus": "For Each pack, the double diamonds bonus applies only once to your first purchase, regardless of the payment channel or platform",
+  "Twilight Pass": "Twilight Pass offers exclusive rewards and bonuses for a limited time period."
+};
+
+
   return (
     <div className="product-page">
       <div
@@ -689,7 +699,7 @@ const Product = () => {
                 style={{
                   position: "absolute",
                   top: "8px",
-                  left: "8px",
+                  right: "8px",
                   padding: "4px",
                   background: "transparent",
                   border: "none",
@@ -697,12 +707,14 @@ const Product = () => {
                 }}
                 aria-label="Close popup"
               >
-                <LuX size={22} color="#333" />
+                <div style={{backgroundColor:"#ffffff54", borderRadius:"500px", padding:2, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                  <LuX size={22} color="#ffffffff" />
+                </div>
               </button>
 
               {/* Image Inside Popup */}
               <img
-                src="https://picsum.photos/400/250"
+                src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757592352/uidpops_jt5djz.png"
                 alt="Preview"
                 style={{
                   width: "100%",
@@ -831,16 +843,48 @@ const Product = () => {
               return (
                 <ProductCard
                   key={uid}
-                  url={item.logoUrl}
-                  amount={item.title}
-                  price={item.dis_price}
-                  original={item.price}
+                  url={item?.logoUrl}
+                  amount={item?.title}
+                  price={item?.dis_price}
+                  original={item?.price}
                   selected={selectedUid === uid} // ✅ unified check
                   onClick={() => handleProductSelect(item)}
                 />
               );
             })}
         </div>
+
+        {/* Highlighted note above payment mode */}
+{/* Highlighted note above payment mode with #4A89DC color scheme */}
+{tabNotes[selectedTab] && (
+  <div style={{
+    margin: '16px 0',
+    padding: '0 16px'
+  }}>
+    <div style={{
+      background: 'linear-gradient(135deg, #E8F2FF 0%, #D1E5FF 100%)',
+      border: '1px solid #4A89DC',
+      borderRadius: '8px',
+      padding: '12px 16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      boxShadow: '0 2px 4px rgba(74, 137, 220, 0.15)'
+    }}>
+      <span style={{
+        fontSize: '16px',
+        flexShrink: 0,
+        color: '#4A89DC'
+      }}>ℹ️</span>
+      <span style={{
+        fontSize: '14px',
+        fontWeight: '500',
+        color: '#2C5AA0',
+        lineHeight: '1.4'
+      }}>{tabNotes[selectedTab]}</span>
+    </div>
+  </div>
+)}
 
         <>
           <PaymentMode mode={paymentModeData} />
@@ -963,7 +1007,7 @@ const ProductCard = ({
   amount,
   price,
   original,
-  logoUrl,
+  url,
   selected,
   onClick,
 }) => (
@@ -972,9 +1016,10 @@ const ProductCard = ({
     onClick={onClick}
   >
     <img
-      src="https://thumbs.dreamstime.com/b/pile-blue-gems-diamonds-different-shapes-luxury-treasure-sparkles-vector-illustration-317923968.jpg"
+      src={url.length > 0 ? url : "https://thumbs.dreamstime.com/b/pile-blue-gems-diamonds-different-shapes-luxury-treasure-sparkles-vector-illustration-317923968.jpg"}
       alt="Diamond Icon"
       className="diamond-icon"
+      style={{borderRadius:"10px"}}
     />
     <div className="product-amount">{amount}</div>
     <div className="product-price">₹{price}</div>
