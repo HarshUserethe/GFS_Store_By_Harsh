@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import Underlay from '../components/Underlay';
 const styles = {
-  top:"10vw"
+  top:"15vw"
 }
 
 const About = () => {
@@ -68,7 +68,7 @@ const About = () => {
           max-width: 800px;
           margin: 0 auto 3rem;
           font-weight: 400;
-          margin-top:-1rem;
+          margin-top:-3rem;
         }
 
         .intro strong {

@@ -110,7 +110,7 @@ export default function ContactForm() {
               component="h1"
               sx={{
                 fontWeight: 600,
-                mb: 3,
+                mb: 2,
                 fontSize: { xs: "1.8rem", md: "3.75rem" },
                 lineHeight: 1.1,
                color:"#fff"
@@ -154,6 +154,7 @@ export default function ContactForm() {
                      color:"#fff",
                       fontSize:"1.8rem",
                       textAlign:"center",
+
                       
                     }}
                   >
@@ -172,14 +173,13 @@ export default function ContactForm() {
                     }}
                     align="center"
                   >
-                    Turn the game on with Gosu Family Store. Contact us for a
-                    one-stop solution to all your game problems.
+                    Contact us for a one-stop solution to all your game problems.
                   </Typography>
                 </Box>
 
                 {/* Contact Details */}
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <Box display="flex" alignItems="flex-start" gap={3} sx={{marginTop:"5vw"}}>
+                  <Box display="flex" alignItems="flex-start" gap={3} sx={{marginTop:"10vw"}}>
                     <Box
                       sx={{
                         width: 48,
@@ -612,7 +612,7 @@ export default function ContactForm() {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ color: "#64748b", mb: 3, fontSize: "1..9rem" }}
+                sx={{ color: "#64748b", mb: 3, fontSize: "1rem" }}
               >
                 For urgent matters, don't hesitate to reach out to us directly
                 via phone or email.
