@@ -314,14 +314,14 @@ const About = () => {
         <div className="photo-section">
           <div className="photo-frame">
             <div className="photo-card">
-              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689175/67c597753236d97f8a97978d_cover_x8lk3y.png" alt="Mobile Legends" />
+              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757828552/gosu_about_us_hixzzs.png" alt="Who We Are" />
+              <div className="photo-overlay">Who We Are?</div>
+            </div>
+          <div className="photo-card">
+              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757828553/gosu_mlbb_f1dt1z.png" alt="Mobile Legends" />
               <div className="photo-overlay">Mobile Legends</div>
             </div>
-            {/* <div className="photo-card">
-              <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689173/GrH33zmX0AA_5G0_h9u5ww.webp" alt="PUBG UC" />
-              <div className="photo-overlay">PUBG Mobile UC</div>
-            </div>
-            <div className="photo-card">
+             {/*  <div className="photo-card">
               <img src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1751689173/mobile-legends-thumbnail-2_qhkijm.jpg" alt="Gaming Currency" />
               <div className="photo-overlay">In-Game Currency</div>
             </div> */}

@@ -615,7 +615,7 @@ const tabNotes = {
         ></div>
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1754231431/rpmhak9kv_1740392265954_gdzmae.avif"
+          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757829432/image-croped_kg3tss.webp"
           alt="Mobile Legends Banner"
           className="banner-image"
         />
