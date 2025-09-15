@@ -333,12 +333,14 @@ export default function ContactForm() {
                         variant="body1"
                         sx={{ color: "#1e40af", fontSize: ".9rem" }}
                       >
-                        <a
-                          href="tel:+919588882875"
-                          style={{ color: "inherit", textDecoration: "none" }}
-                        >
-                          +91 9588882875
-                        </a>
+                       <a
+  href="https://wa.me/919512792875"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ color: "inherit", textDecoration: "none" }}
+>
+  +91 9512792875
+</a>
                       </Typography>
                       <Typography
                         variant="body2"
