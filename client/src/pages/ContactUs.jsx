@@ -20,15 +20,15 @@ import {
   LocationOn,
   Business,
   WhatsApp,
-  Mail
+  Mail,
 } from "@mui/icons-material";
 import "../App.css";
 import Header from "../components/Header";
 import Underlay from "../components/Underlay";
 
 const styles = {
-  top:"10vw"
-}
+  top: "10vw",
+};
 
 const countryCodes = [
   { code: "+91", label: "India" },
@@ -93,17 +93,30 @@ export default function ContactForm() {
           minHeight: "100vh",
           bgcolor: "transparent",
           py: { xs: 3, md: 8 },
-          px: 2,
-          position:"absolute"
+          px: { xs: 2, md: 2 }, // Consistent padding
+          position: "absolute",
+          width: "100%", // Ensure full width
+          overflowX: "hidden", // Prevent horizontal overflow
+          boxSizing: "border-box", // Include padding in width calculation
         }}
       >
-        <Container maxWidth="xl" >
+        <Container 
+          maxWidth="xl" 
+          sx={{
+            px: { xs: 1, sm: 2, md: 3 }, // Responsive padding
+            width: "100%",
+            maxWidth: "100%",
+          }}
+        >
           {/* Header Section */}
           <Box
             textAlign="center"
-            mb={{ xs: 6, md: 8 }}
-            maxWidth="800px"
-            mx="auto"
+            mb={{ xs: 4, md: 8 }}
+            sx={{
+              maxWidth: "100%", // Ensure it doesn't exceed container
+              mx: "auto",
+              px: { xs: 1, sm: 2 }, // Additional responsive padding
+            }}
           >
             <Typography
               variant="h2"
@@ -111,9 +124,10 @@ export default function ContactForm() {
               sx={{
                 fontWeight: 600,
                 mb: 2,
-                fontSize: { xs: "1.8rem", md: "3.75rem" },
+                fontSize: { xs: "1.8rem", sm: "2.2rem", md: "3.75rem" },
                 lineHeight: 1.1,
-               color:"#fff"
+                color: "#fff",
+                wordBreak: "break-word", // Prevent text overflow
               }}
             >
               Contact Us
@@ -122,10 +136,11 @@ export default function ContactForm() {
               variant="h6"
               color="text.secondary"
               sx={{
-                fontSize: { xs: ".9rem", md: "1.25rem" },
+                fontSize: { xs: ".9rem", sm: "1rem", md: "1.25rem" },
                 lineHeight: 1.6,
                 fontWeight: 400,
-                color:"#fff"
+                color: "#fff",
+                px: { xs: 1, sm: 2 }, // Additional padding for mobile
               }}
             >
               Get in touch with our team. We're here to help you with all your
@@ -136,26 +151,46 @@ export default function ContactForm() {
           {/* Main Content */}
           <Grid
             container
-            spacing={{ xs: 4, md: 8 }}
+            spacing={{ xs: 2, sm: 4, md: 8 }}
             alignItems="flex-start"
-            maxWidth="1400px"
-            mx="auto"
+            sx={{
+              maxWidth: "100%", // Prevent overflow
+              mx: "auto",
+            }}
           >
             {/* Left Side - Contact Information */}
-            <Grid item xs={12} md={5} >
-              <Box>
+            <Grid 
+              item 
+              xs={12} 
+              md={5}
+              sx={{
+                width: "100%", // Ensure full width
+                maxWidth: "100%", // Prevent overflow
+              }}
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  maxWidth: "100%",
+                  overflowX: "hidden", // Prevent horizontal overflow
+                }}
+              >
                 {/* Logo Section */}
-                <Box mb={5} sx={{marginTop:'-5vw'}} >
+                <Box 
+                  mb={5} 
+                  sx={{ 
+                    marginTop: { xs: "2vw", sm: "0", md: "-5vw" },
+                    px: { xs: 1, sm: 0 }, // Mobile padding
+                  }}
+                >
                   <Typography
                     variant="h4"
                     fontWeight={600}
                     gutterBottom
                     sx={{
-                     color:"#fff",
-                      fontSize:"1.8rem",
-                      textAlign:"center",
-
-                      
+                      color: "#fff",
+                      fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                      textAlign: "center",
                     }}
                   >
                     Get In Touch
@@ -166,24 +201,40 @@ export default function ContactForm() {
                       color: "#fff",
                       lineHeight: 1.7,
                       fontSize: ".9rem",
-                      
-                      padding:"10px",
-                      borderRadius:"10px",
-                    
+                      padding: { xs: "8px", sm: "10px" },
+                      borderRadius: "10px",
+                      textAlign: "center",
                     }}
-                    align="center"
                   >
-                    Contact us for a one-stop solution to all your game problems.
+                    Contact us for a one-stop solution to all your game
+                    problems.
                   </Typography>
                 </Box>
 
                 {/* Contact Details */}
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <Box display="flex" alignItems="flex-start" gap={3} sx={{marginTop:"10vw"}}>
+                <Box 
+                  sx={{ 
+                    display: "flex", 
+                    flexDirection: "column", 
+                    gap: { xs: 3, sm: 4 },
+                    width: "100%",
+                    maxWidth: "100%",
+                  }}
+                >
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
+                    gap={{ xs: 2, sm: 3 }}
+                    sx={{ 
+                      marginTop: { xs: "5vw", sm: "8vw", md: "10vw" },
+                      width: "100%",
+                      maxWidth: "100%",
+                    }}
+                  >
                     <Box
                       sx={{
-                        width: 48,
-                        height: 48,
+                        width: { xs: 40, sm: 48 },
+                        height: { xs: 40, sm: 48 },
                         bgcolor: "#dbeafe",
                         borderRadius: "12px",
                         display: "flex",
@@ -192,21 +243,41 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <Email sx={{ color: "#1e40af", fontSize: 24 }} />
+                      <Email sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
                     </Box>
-                    <Box>
+                    <Box
+                      sx={{
+                        flex: 1,
+                        minWidth: 0, // Allow text to wrap
+                        maxWidth: "100%",
+                      }}
+                    >
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
+                        sx={{ 
+                          color: "#1e293b", 
+                          mb: 0.5, 
+                          fontSize: { xs: "1rem", sm: "1.1rem" },
+                          wordBreak: "break-word",
+                        }}
                       >
                         Email Address
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ color: "#1e40af", fontSize: ".9rem" }}
+                        sx={{ 
+                          color: "#1e40af", 
+                          fontSize: ".9rem",
+                          wordBreak: "break-all", // Allow email to break
+                        }}
                       >
-                        askgosufamilystore@gmail.com
+                        <a
+                          href="mailto:askgosufamilystore@gmail.com"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          askgosufamilystore@gmail.com
+                        </a>
                       </Typography>
                       <Typography
                         variant="body2"
@@ -217,11 +288,19 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                 <Box display="flex" alignItems="flex-start" gap={3}>
+                  <Box 
+                    display="flex" 
+                    alignItems="flex-start" 
+                    gap={{ xs: 2, sm: 3 }}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "100%",
+                    }}
+                  >
                     <Box
                       sx={{
-                        width: 48,
-                        height: 48,
+                        width: { xs: 40, sm: 48 },
+                        height: { xs: 40, sm: 48 },
                         bgcolor: "#dbeafe",
                         borderRadius: "12px",
                         display: "flex",
@@ -230,13 +309,23 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <WhatsApp sx={{ color: "#1e40af", fontSize: 24 }} />
+                      <WhatsApp sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
                     </Box>
-                    <Box>
+                    <Box
+                      sx={{
+                        flex: 1,
+                        minWidth: 0,
+                        maxWidth: "100%",
+                      }}
+                    >
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
+                        sx={{ 
+                          color: "#1e293b", 
+                          mb: 0.5, 
+                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        }}
                       >
                         Phone Number
                       </Typography>
@@ -244,22 +333,35 @@ export default function ContactForm() {
                         variant="body1"
                         sx={{ color: "#1e40af", fontSize: ".9rem" }}
                       >
-                        +91 9512792875
+                        <a
+                          href="tel:+919588882875"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          +91 9588882875
+                        </a>
                       </Typography>
                       <Typography
                         variant="body2"
                         sx={{ color: "#64748b", mt: 0.5 }}
                       >
-                       Saturday - 10 AM to 03 PM <br/>  Sunday OFF
+                        Saturday - 10 AM to 03 PM <br /> Sunday OFF
                       </Typography>
                     </Box>
-                  </Box> 
+                  </Box>
 
-                  <Box display="flex" alignItems="flex-start" gap={3}>
+                  <Box 
+                    display="flex" 
+                    alignItems="flex-start" 
+                    gap={{ xs: 2, sm: 3 }}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "100%",
+                    }}
+                  >
                     <Box
                       sx={{
-                        width: 48,
-                        height: 48,
+                        width: { xs: 40, sm: 48 },
+                        height: { xs: 40, sm: 48 },
                         bgcolor: "#dbeafe",
                         borderRadius: "12px",
                         display: "flex",
@@ -268,13 +370,23 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <LocationOn sx={{ color: "#1e40af", fontSize: 24 }} />
+                      <LocationOn sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
                     </Box>
-                    <Box>
+                    <Box
+                      sx={{
+                        flex: 1,
+                        minWidth: 0,
+                        maxWidth: "100%",
+                      }}
+                    >
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
+                        sx={{ 
+                          color: "#1e293b", 
+                          mb: 0.5, 
+                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        }}
                       >
                         Office Address
                       </Typography>
@@ -289,11 +401,19 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                  <Box display="flex" alignItems="flex-start" gap={3}>
+                  <Box 
+                    display="flex" 
+                    alignItems="flex-start" 
+                    gap={{ xs: 2, sm: 3 }}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "100%",
+                    }}
+                  >
                     <Box
                       sx={{
-                        width: 48,
-                        height: 48,
+                        width: { xs: 40, sm: 48 },
+                        height: { xs: 40, sm: 48 },
                         bgcolor: "#dbeafe",
                         borderRadius: "12px",
                         display: "flex",
@@ -302,13 +422,23 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <Business sx={{ color: "#1e40af", fontSize: 24 }} />
+                      <Business sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
                     </Box>
-                    <Box>
+                    <Box
+                      sx={{
+                        flex: 1,
+                        minWidth: 0,
+                        maxWidth: "100%",
+                      }}
+                    >
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ color: "#1e293b", mb: 0.5, fontSize:"1.1rem" }}
+                        sx={{ 
+                          color: "#1e293b", 
+                          mb: 0.5, 
+                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        }}
                       >
                         Business Hours
                       </Typography>
@@ -326,315 +456,83 @@ export default function ContactForm() {
                 </Box>
               </Box>
             </Grid>
-
-            {/* Right Side - Contact Form */}
-            {/* <Grid item xs={12} md={7}>
-            <Box sx={{ bgcolor: 'white', p: { xs: 4, md: 6 }, borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-              <Typography variant="h4" fontWeight={600} gutterBottom sx={{ color: '#1e293b', mb: 2 }}>
-                Send us a Message
-              </Typography>
-              <Typography variant="body1" sx={{ color: '#64748b', mb: 4, fontSize: '1..9rem' }}>
-                Fill out the form below and we'll get back to you as soon as possible.
-              </Typography>
-
-              <Divider sx={{ mb: 4, borderColor: '#e2e8f0' }} />
-
-              {submitted ? (
-                <Fade in={submitted}>
-                  <Box
-                    textAlign="center"
-                    py={6}
-                    sx={{
-                      bgcolor: '#f0fdf4',
-                      borderRadius: '12px',
-                      border: '1px solid #bbf7d0',
-                    }}
-                  >
-                    <Typography variant="h5" sx={{ color: '#16a34a', fontWeight: 600, mb: 2 }}>
-                      Message Sent Successfully!
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: '#65a30d' }}>
-                      Thank you for contacting us. We'll get back to you within 24 hours.
-                    </Typography>
-                  </Box>
-                </Fade>
-              ) : (
-                <Grid container spacing={3}>
-                  <Grid item xs={12}>
-                    <Typography variant="body2" sx={{ color: '#374151', mb: 1, fontWeight: 500 }}>
-                      Full Name *
-                    </Typography>
-                    <TextField
-                      fullWidth
-                      placeholder="Enter your full name"
-                      variant="outlined"
-                      value={formData.name}
-                      onChange={handleChange('name')}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Person sx={{ color: '#6b7280' }} />
-                          </InputAdornment>
-                        ),
-                      }}
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          bgcolor: '#f9fafb',
-                          '& fieldset': {
-                            borderColor: '#d1d5db',
-                          },
-                          '&:hover fieldset': {
-                            borderColor: '#1e40af',
-                          },
-                          '&.Mui-focused fieldset': {
-                            borderColor: '#1e40af',
-                            borderWidth: 2,
-                          },
-                        },
-                      }}
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Typography variant="body2" sx={{ color: '#374151', mb: 1, fontWeight: 500 }}>
-                      Email Address *
-                    </Typography>
-                    <TextField
-                      fullWidth
-                      placeholder="Enter your email address"
-                      type="email"
-                      variant="outlined"
-                      value={formData.email}
-                      onChange={handleChange('email')}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <Email sx={{ color: '#6b7280' }} />
-                          </InputAdornment>
-                        ),
-                      }}
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          bgcolor: '#f9fafb',
-                          '& fieldset': {
-                            borderColor: '#d1d5db',
-                          },
-                          '&:hover fieldset': {
-                            borderColor: '#1e40af',
-                          },
-                          '&.Mui-focused fieldset': {
-                            borderColor: '#1e40af',
-                            borderWidth: 2,
-                          },
-                        },
-                      }}
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Typography variant="body2" sx={{ color: '#374151', mb: 1, fontWeight: 500 }}>
-                      Mobile Number *
-                    </Typography>
-                    <Box display="flex" gap={1}>
-                      <TextField
-                        select
-                        value={formData.countryCode}
-                        onChange={handleChange('countryCode')}
-                        sx={{
-                          width: 120,
-                          '& .MuiOutlinedInput-root': {
-                            borderRadius: '8px',
-                            bgcolor: '#f9fafb',
-                            '& fieldset': {
-                              borderColor: '#d1d5db',
-                            },
-                            '&:hover fieldset': {
-                              borderColor: '#1e40af',
-                            },
-                            '&.Mui-focused fieldset': {
-                              borderColor: '#1e40af',
-                              borderWidth: 2,
-                            },
-                          },
-                        }}
-                      >
-                        {countryCodes.map((option, index) => (
-                          <MenuItem key={index} value={option.code}>
-                            {option.code}
-                          </MenuItem>
-                        ))}
-                      </TextField>
-                      <TextField
-                        fullWidth
-                        placeholder="Enter your mobile number"
-                        variant="outlined"
-                        value={formData.mobile}
-                        onChange={handleChange('mobile')}
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <Phone sx={{ color: '#6b7280' }} />
-                            </InputAdornment>
-                          ),
-                        }}
-                        sx={{
-                          '& .MuiOutlinedInput-root': {
-                            borderRadius: '8px',
-                            bgcolor: '#f9fafb',
-                            '& fieldset': {
-                              borderColor: '#d1d5db',
-                            },
-                            '&:hover fieldset': {
-                              borderColor: '#1e40af',
-                            },
-                            '&.Mui-focused fieldset': {
-                              borderColor: '#1e40af',
-                              borderWidth: 2,
-                            },
-                          },
-                        }}
-                        required
-                      />
-                    </Box>
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Typography variant="body2" sx={{ color: '#374151', mb: 1, fontWeight: 500 }}>
-                      Message *
-                    </Typography>
-                    <TextField
-                     
-                      fullWidth
-                      multiline
-                      rows={4}
-                      placeholder="Tell us how we can help you..."
-                      variant="outlined"
-                      value={formData.message}
-                      onChange={handleChange('message')}
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start" sx={{ alignSelf: 'flex-start', mt: 1 }}>
-                            <Message sx={{ color: '#6b7280' }} />
-                          </InputAdornment>
-                        ),
-                      }}
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          bgcolor: '#f9fafb',
-                          '& fieldset': {
-                            borderColor: '#d1d5db',
-                          },
-                          '&:hover fieldset': {
-                            borderColor: '#1e40af',
-                          },
-                          '&.Mui-focused fieldset': {
-                            borderColor: '#1e40af',
-                            borderWidth: 2,
-                          },
-                        },
-                        width:"70vw"
-                      }}
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      size="large"
-                      onClick={handleSubmit}
-                      disabled={isSubmitting}
-                      startIcon={
-                        isSubmitting ? (
-                          <CircularProgress size={20} color="inherit" />
-                        ) : (
-                          <Send />
-                        )
-                      }
-                      sx={{
-                        py: 2,
-                        borderRadius: '8px',
-                        fontWeight: 600,
-                        fontSize: '1..9rem',
-                        textTransform: 'none',
-                        bgcolor: '#1e40af',
-                        '&:hover': {
-                          bgcolor: '#1e3a8a',
-                          transform: 'translateY(-1px)',
-                        },
-                        '&:disabled': {
-                          bgcolor: '#9ca3af',
-                        },
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          boxShadow: 'none',
-                          bgcolor: '#1e3a8a',
-                        },
-                      }}
-                    >
-                      {isSubmitting ? 'Sending Message...' : 'Send Message'}
-                    </Button>
-                  </Grid>
-                </Grid>
-              )}
-            </Box>
-          </Grid> */}
           </Grid>
 
           {/* Bottom Section */}
           <Box
-            mt={{ xs: 6, md: 10 }}
+            mt={{ xs: 4, sm: 6, md: 10 }}
             textAlign="center"
-            maxWidth="800px"
-            mx="auto"
+            sx={{
+              maxWidth: "100%",
+              mx: "auto",
+              px: { xs: 1, sm: 2 }, // Mobile padding
+            }}
           >
             <Box
               sx={{
                 bgcolor: "white",
-                p: 4,
+                p: { xs: 3, sm: 4 },
                 borderRadius: "16px",
                 border: "1px solid #e2e8f0",
+                width: "100%",
+                maxWidth: "100%",
+                boxSizing: "border-box",
               }}
             >
               <Typography
                 variant="h5"
                 fontWeight={600}
                 gutterBottom
-                sx={{ color: "#1e293b", fontSize:"1.2rem"  }}
+                sx={{ 
+                  color: "#1e293b", 
+                  fontSize: { xs: "1.1rem", sm: "1.2rem" } 
+                }}
               >
                 Need Immediate Assistance?
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ color: "#64748b", mb: 3, fontSize: "1rem" }}
+                sx={{ 
+                  color: "#64748b", 
+                  mb: 3, 
+                  fontSize: "1rem",
+                  px: { xs: 1, sm: 0 }, // Mobile text padding
+                }}
               >
                 For urgent matters, don't hesitate to reach out to us directly
-                via phone or email.
+                via email.
               </Typography>
               <Box
                 display="flex"
                 justifyContent="center"
-                gap={3}
+                gap={{ xs: 2, sm: 3 }}
                 flexWrap="wrap"
+                sx={{
+                  alignItems: "center",
+                  px: { xs: 1, sm: 0 },
+                }}
               >
-                {/* <Typography
-                  variant="body1"
-                  sx={{ color: "#1e40af", fontWeight: 600 }}
-                >
-                  📞 +91 9512792875
-
-                </Typography> */}
                 <Typography
                   variant="body1"
-                  sx={{ color: "#1e40af", fontWeight: 600, display:"flex", justifyContent:"center", alignItems:"center", gap:1 }}
+                  sx={{
+                    color: "#1e40af",
+                    fontWeight: 600,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 1,
+                    fontSize: { xs: ".9rem", sm: "1rem" },
+                    wordBreak: "break-all", // Allow email to break on mobile
+                    textAlign: "center",
+                  }}
                 >
-                 <Mail /> askgosufamilystore@gmail.com
+                  <Mail sx={{ flexShrink: 0 }} /> 
+                  <a 
+                    href="mailto:askgosufamilystore@gmail.com"
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    askgosufamilystore@gmail.com
+                  </a>
                 </Typography>
               </Box>
             </Box>

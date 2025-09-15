@@ -1,7 +1,7 @@
 [
   {
     "comboId": "COMBO001",
-    "title": "343 Diamonds",
+    "title": "343 Diamonds (312 + 31)",
     "type": "combo",
     "items": [
       { "productId": "25", "diamonds": 257 },
@@ -15,7 +15,7 @@
   },
   {
     "comboId": "COMBO002",
-    "title": "429 Diamonds",
+    "title": "429 Diamonds (390 + 39)",
     "type": "combo",
     "items": [
       { "productId": "25", "diamonds": 257 },
@@ -29,7 +29,7 @@
   },
   {
     "comboId": "COMBO003",
-    "title": "514 Diamonds",
+    "title": "514 Diamonds (468 + 46)",
     "type": "combo",
     "items": [
       { "productId": "25", "diamonds": 257 },
@@ -43,7 +43,7 @@
   },
   {
     "comboId": "COMBO004",
-    "title": "600 Diamonds",
+    "title": "600 Diamonds (546 + 54)",
     "type": "combo",
     "items": [
       { "productId": "25", "diamonds": 257 },
@@ -58,7 +58,7 @@
   },
   {
     "comboId": "COMBO005",
-    "title": "792 Diamonds",
+    "title": "792 Diamonds (703 + 89)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -72,7 +72,7 @@
   },
   {
     "comboId": "COMBO006",
-    "title": "878 Diamonds",
+    "title": "878 Diamonds (781 + 97)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -86,7 +86,7 @@
   },
   {
     "comboId": "COMBO007",
-    "title": "963 Diamonds",
+    "title": "963 Diamonds (859 + 104)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -100,7 +100,7 @@
   },
   {
     "comboId": "COMBO008",
-    "title": "1049 Diamonds",
+    "title": "1049 Diamonds (937 + 112)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -115,7 +115,7 @@
   },
    {
     "comboId": "COMBO017",
-    "title": "1135 Diamonds",
+    "title": "1135 Diamonds (1015 +120)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -130,7 +130,7 @@
   },
   {
     "comboId": "COMBO009",
-    "title": "1220 Diamonds",
+    "title": "1220 Diamonds (1093 + 127)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -145,7 +145,7 @@
   },
   {
     "comboId": "COMBO010",
-    "title": "1306 Diamonds",
+    "title": "1306 Diamonds (1171 + 135)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -161,7 +161,7 @@
   },
   {
     "comboId": "COMBO011",
-    "title": "1412 Diamonds",
+    "title": "1412 Diamonds (1250 + 162)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -175,7 +175,7 @@
   },
    {
     "comboId": "COMBO018",
-    "title": "1584 Diamonds",
+    "title": "1584 Diamonds (1406 + 178)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -190,7 +190,7 @@
   },
   {
     "comboId": "COMBO012",
-    "title": "1669 Diamonds",
+    "title": "1669 Diamonds (1484 + 185)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -205,7 +205,7 @@
   },
    {
     "comboId": "COMBO019",
-    "title": "1841 Diamonds",
+    "title": "1841 Diamonds (1640 + 201)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -221,7 +221,7 @@
   },
   {
     "comboId": "COMBO013",
-    "title": "1926 Diamonds",
+    "title": "1926 Diamonds (1768 + 208)",
     "type": "combo",
     "items": [
       { "productId": "26", "diamonds": 706 },
@@ -237,7 +237,7 @@
   },
   {
     "comboId": "COMBO014",
-    "title": "2901 Diamonds",
+    "title": "2901 Diamonds (2485 + 416)",
     "type": "combo",
     "items": [
       { "productId": "27", "diamonds": 2195 },
@@ -251,7 +251,7 @@
   },
   {
     "comboId": "COMBO015",
-    "title": "4394 Diamonds",
+    "title": "4394 Diamonds (3724 + 670)",
     "type": "combo",
     "items": [
       { "productId": "28", "diamonds": 3688 },
@@ -265,7 +265,7 @@
   },
   {
     "comboId": "COMBO016",
-    "title": "7727 Diamonds",
+    "title": "7727 Diamonds (6506 + 1218)",
     "type": "combo",
     "items": [
       { "productId": "29", "diamonds": 5532 },

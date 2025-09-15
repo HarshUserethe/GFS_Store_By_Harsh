@@ -503,7 +503,24 @@ const Product = () => {
 
   // Array containing notes for each tab
 const tabNotes = {
-  "Diamonds": "Purchase diamonds to enhance your gaming experience and unlock premium features.",
+  "Diamonds": (
+    <>
+      Only Basic Diamonds Are Counted In The Recharge Tasks & Bonus Diamonds Aren't Counted In The Recharge Tasks
+      <br />
+      <br />
+      <span style={{ 
+        fontSize: '0.85rem', 
+        color: '#666', 
+        fontWeight:"400",
+        fontStyle: 'italic',
+        display: 'block'
+      }}>
+        Example: 257 💎 - (234+23) <br />
+        Here <strong>234</strong> are Basic Diamonds & <strong>23</strong> are Bonus Diamonds,
+        So only <strong>234</strong> will count in Recharge Task.
+      </span>
+    </>
+  ),
   "Weekly Diamond Pass": "Weekly diamonds Pass count as 100 in recharge tasks",
   "2x First Recharge Bonus": "For Each pack, the double diamonds bonus applies only once to your first purchase, regardless of the payment channel or platform",
   "Twilight Pass": "Twilight Pass offers exclusive rewards and bonuses for a limited time period."
@@ -615,7 +632,7 @@ const tabNotes = {
         ></div>
         <img
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757829432/image-croped_kg3tss.webp"
+          src="https://res.cloudinary.com/da6pzcqcw/image/upload/v1757937614/mlbb-topup-bg_g5noam.webp"
           alt="Mobile Legends Banner"
           className="banner-image"
         />
