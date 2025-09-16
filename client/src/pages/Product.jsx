@@ -1105,20 +1105,26 @@ const ProductCard = ({
   <div
     className={`product-card ${selected ? "selected-product" : ""}`}
     onClick={onClick}
+     style={{
+    position: "relative", // add this if not already set via CSS
+  }}
   >
     {note?.length > 0 ? (
       <div
         style={{
-          position: "absolute",
-          fontSize: ".5rem",
-          backgroundColor: "#E24C5E",
-          padding: "4px",
-          width: "35%",
-          borderRadius: "5px",
-          color: "#fff",
-          boxShadow: "1px 1px 5px #dfdfdf",
-          marginTop: "-42%",
-          marginLeft: "10%",
+        position: "absolute",
+        top: 0,
+        right: 70,
+        transform: "translate(50%, -50%)", // half outside horizontally by width, half outside vertically by height
+        fontSize: ".5rem",
+        backgroundColor: "#e12339ff",
+        padding: "4px",
+        width: "90%",
+        borderRadius: "5px",
+        borderTopRightRadius:"25px",
+        borderBottomLeftRadius:"25px",
+        color: "#fff",
+        boxShadow: "1px 1px 5px #dfdfdf",
         }}
       >
        {note}
