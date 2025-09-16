@@ -32,6 +32,7 @@ import PaymentMode from "../components/PaymentMode";
 import { usePayment } from "../context/PaymentContext";
 import HowToPurchaseImage from "../assets/how_to_purchase.png";
 
+
 const Product = () => {
   const paymentMethod = [
     {
@@ -186,7 +187,6 @@ const Product = () => {
       productList.some((p) => p.id === prd.id) && prd.category === selectedTab
     );
   });
-  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -502,30 +502,36 @@ const Product = () => {
   };
 
   // Array containing notes for each tab
-const tabNotes = {
-  "Diamonds": (
-    <>
-      Only Basic Diamonds Are Counted In The Recharge Tasks & Bonus Diamonds Aren't Counted In The Recharge Tasks
-      <br />
-      <br />
-      <span style={{ 
-        fontSize: '0.85rem', 
-        color: '#666', 
-        fontWeight:"400",
-        fontStyle: 'italic',
-        display: 'block'
-      }}>
-        Example: 257 💎 - (234+23) <br />
-        Here <strong>234</strong> are Basic Diamonds & <strong>23</strong> are Bonus Diamonds,
-        So only <strong>234</strong> will count in Recharge Task.
-      </span>
-    </>
-  ),
-  "Weekly Diamond Pass": "Weekly diamonds Pass count as 100 in recharge tasks",
-  "2x First Recharge Bonus": "For Each pack, the double diamonds bonus applies only once to your first purchase, regardless of the payment channel or platform",
-  "Twilight Pass": "Twilight Pass offers exclusive rewards and bonuses for a limited time period."
-};
-
+  const tabNotes = {
+    Diamonds: (
+      <>
+        Only Basic Diamonds Are Counted In The Recharge Tasks & Bonus Diamonds
+        Aren't Counted In The Recharge Tasks
+        <br />
+        <br />
+        <span
+          style={{
+            fontSize: "0.85rem",
+            color: "#666",
+            fontWeight: "400",
+            fontStyle: "italic",
+            display: "block",
+          }}
+        >
+          Example: 257 💎 - (234+23) <br />
+          Here <strong>234</strong> are Basic Diamonds & <strong>23</strong> are
+          Bonus Diamonds, So only <strong>234</strong> will count in Recharge
+          Task.
+        </span>
+      </>
+    ),
+    "Weekly Diamond Pass":
+      "Weekly diamonds Pass count as 100 in recharge tasks",
+    "2x First Recharge Bonus":
+      "For Each pack, the double diamonds bonus applies only once to your first purchase, regardless of the payment channel or platform",
+    "Twilight Pass":
+      "Twilight Pass offers exclusive rewards and bonuses for a limited time period.",
+  };
 
   return (
     <div className="product-page">
@@ -724,7 +730,16 @@ const tabNotes = {
                 }}
                 aria-label="Close popup"
               >
-                <div style={{backgroundColor:"#ffffff54", borderRadius:"500px", padding:2, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                <div
+                  style={{
+                    backgroundColor: "#ffffff54",
+                    borderRadius: "500px",
+                    padding: 2,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <LuX size={22} color="#ffffffff" />
                 </div>
               </button>
@@ -844,9 +859,9 @@ const tabNotes = {
                 ))}
         </div> */}
 
-        <div className="product-grid">
+        {/* <div className="product-grid">
           {(selectedTab === "Diamonds"
-            ? [...filteredProducts, ...customPacks] // Diamonds tab → merge both
+            ? [...filteredProducts, ...customPacks,  ...customProducts.filter((item) => item.category === "2x First Recharge Bonus")] // Diamonds tab → merge both
             : filteredProducts.filter((item) => item.category === selectedTab)
           ) // Other tabs → only filtered
             .sort((a, b) => a.dis_price - b.dis_price)
@@ -869,39 +884,97 @@ const tabNotes = {
                 />
               );
             })}
+        </div> */}
+
+        <div className="product-grid">
+          {(selectedTab === "Diamonds"
+            ? [
+                ...filteredProducts, // Diamonds
+                ...customPacks, // Your custom packs
+                ...customProducts.filter(
+                  (item) => item.category === "2x First Recharge Bonus"
+                ), // ✅ include Double Diamonds in Diamonds tab
+              ]
+            : selectedTab === "2x First Recharge Bonus"
+            ? [
+                ...filteredProducts.filter(
+                  (item) => item.category === "2x First Recharge Bonus"
+                ),
+                ...customProducts.filter(
+                  (item) => item.comboId === "COMBO2X001"
+                ), // ✅ add specific item
+              ]
+            : filteredProducts.filter((item) => item.category === selectedTab)
+          ) // Other tabs
+            .sort((a, b) => a.dis_price - b.dis_price)
+            .map((item) => {
+              // normalize unique id for both diamonds + combos
+              const uid = item.id || item.comboId;
+              const selectedUid =
+                selectedProduct &&
+                (selectedProduct.id || selectedProduct.comboId);
+
+              // find note for this product
+              const productNote = item?.note?.length > 0 ? item.note : ""
+
+              return (
+                <ProductCard
+                  key={uid}
+                  url={item?.logoUrl}
+                  amount={item?.title}
+                  price={item?.dis_price}
+                  original={item?.price}
+                  selected={selectedUid === uid} // ✅ unified check
+                  onClick={() => handleProductSelect(item)}
+                  note={productNote}
+                />
+              );
+            })}
         </div>
 
         {/* Highlighted note above payment mode */}
-{/* Highlighted note above payment mode with #4A89DC color scheme */}
-{tabNotes[selectedTab] && (
-  <div style={{
-    margin: '16px 0',
-    padding: '0 16px'
-  }}>
-    <div style={{
-      background: 'linear-gradient(135deg, #E8F2FF 0%, #D1E5FF 100%)',
-      border: '1px solid #4A89DC',
-      borderRadius: '8px',
-      padding: '12px 16px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      boxShadow: '0 2px 4px rgba(74, 137, 220, 0.15)'
-    }}>
-      <span style={{
-        fontSize: '16px',
-        flexShrink: 0,
-        color: '#4A89DC'
-      }}>ℹ️</span>
-      <span style={{
-        fontSize: '14px',
-        fontWeight: '500',
-        color: '#2C5AA0',
-        lineHeight: '1.4'
-      }}>{tabNotes[selectedTab]}</span>
-    </div>
-  </div>
-)}
+        {/* Highlighted note above payment mode with #4A89DC color scheme */}
+        {tabNotes[selectedTab] && (
+          <div
+            style={{
+              margin: "16px 0",
+              padding: "0 16px",
+            }}
+          >
+            <div
+              style={{
+                background: "linear-gradient(135deg, #E8F2FF 0%, #D1E5FF 100%)",
+                border: "1px solid #4A89DC",
+                borderRadius: "8px",
+                padding: "12px 16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                boxShadow: "0 2px 4px rgba(74, 137, 220, 0.15)",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "16px",
+                  flexShrink: 0,
+                  color: "#4A89DC",
+                }}
+              >
+                ℹ️
+              </span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#2C5AA0",
+                  lineHeight: "1.4",
+                }}
+              >
+                {tabNotes[selectedTab]}
+              </span>
+            </div>
+          </div>
+        )}
 
         <>
           <PaymentMode mode={paymentModeData} />
@@ -1027,16 +1100,42 @@ const ProductCard = ({
   url,
   selected,
   onClick,
+  note,
 }) => (
   <div
     className={`product-card ${selected ? "selected-product" : ""}`}
     onClick={onClick}
   >
+    {note?.length > 0 ? (
+      <div
+        style={{
+          position: "absolute",
+          fontSize: ".5rem",
+          backgroundColor: "#E24C5E",
+          padding: "4px",
+          width: "35%",
+          borderRadius: "5px",
+          color: "#fff",
+          boxShadow: "1px 1px 5px #dfdfdf",
+          marginTop: "-42%",
+          marginLeft: "10%",
+        }}
+      >
+       {note}
+       
+      </div>
+    ) : (
+      ""
+    )}
     <img
-      src={url.length > 0 ? url : "https://thumbs.dreamstime.com/b/pile-blue-gems-diamonds-different-shapes-luxury-treasure-sparkles-vector-illustration-317923968.jpg"}
+      src={
+        url.length > 0
+          ? url
+          : "https://thumbs.dreamstime.com/b/pile-blue-gems-diamonds-different-shapes-luxury-treasure-sparkles-vector-illustration-317923968.jpg"
+      }
       alt="Diamond Icon"
       className="diamond-icon"
-      style={{borderRadius:"10px"}}
+      style={{ borderRadius: "10px" }}
     />
     <div className="product-amount">{amount}</div>
     <div className="product-price">₹{price}</div>

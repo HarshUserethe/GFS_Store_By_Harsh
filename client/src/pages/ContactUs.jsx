@@ -100,8 +100,8 @@ export default function ContactForm() {
           boxSizing: "border-box", // Include padding in width calculation
         }}
       >
-        <Container 
-          maxWidth="xl" 
+        <Container
+          maxWidth="xl"
           sx={{
             px: { xs: 1, sm: 2, md: 3 }, // Responsive padding
             width: "100%",
@@ -159,9 +159,9 @@ export default function ContactForm() {
             }}
           >
             {/* Left Side - Contact Information */}
-            <Grid 
-              item 
-              xs={12} 
+            <Grid
+              item
+              xs={12}
               md={5}
               sx={{
                 width: "100%", // Ensure full width
@@ -176,9 +176,9 @@ export default function ContactForm() {
                 }}
               >
                 {/* Logo Section */}
-                <Box 
-                  mb={5} 
-                  sx={{ 
+                <Box
+                  mb={5}
+                  sx={{
                     marginTop: { xs: "2vw", sm: "0", md: "-5vw" },
                     px: { xs: 1, sm: 0 }, // Mobile padding
                   }}
@@ -212,10 +212,10 @@ export default function ContactForm() {
                 </Box>
 
                 {/* Contact Details */}
-                <Box 
-                  sx={{ 
-                    display: "flex", 
-                    flexDirection: "column", 
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
                     gap: { xs: 3, sm: 4 },
                     width: "100%",
                     maxWidth: "100%",
@@ -225,7 +225,7 @@ export default function ContactForm() {
                     display="flex"
                     alignItems="flex-start"
                     gap={{ xs: 2, sm: 3 }}
-                    sx={{ 
+                    sx={{
                       marginTop: { xs: "5vw", sm: "8vw", md: "10vw" },
                       width: "100%",
                       maxWidth: "100%",
@@ -243,7 +243,17 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <Email sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
+                      <a
+                        href="mailto:askgosufamilystore@gmail.com"
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        <Email
+                          sx={{
+                            color: "#1e40af",
+                            fontSize: { xs: 20, sm: 24 },
+                          }}
+                        />
+                      </a>
                     </Box>
                     <Box
                       sx={{
@@ -255,9 +265,9 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ 
-                          color: "#1e293b", 
-                          mb: 0.5, 
+                        sx={{
+                          color: "#1e293b",
+                          mb: 0.5,
                           fontSize: { xs: "1rem", sm: "1.1rem" },
                           wordBreak: "break-word",
                         }}
@@ -266,8 +276,8 @@ export default function ContactForm() {
                       </Typography>
                       <Typography
                         variant="body1"
-                        sx={{ 
-                          color: "#1e40af", 
+                        sx={{
+                          color: "#1e40af",
                           fontSize: ".9rem",
                           wordBreak: "break-all", // Allow email to break
                         }}
@@ -288,9 +298,9 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                  <Box 
-                    display="flex" 
-                    alignItems="flex-start" 
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
                     gap={{ xs: 2, sm: 3 }}
                     sx={{
                       width: "100%",
@@ -309,7 +319,19 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <WhatsApp sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
+                      <a
+                        href="https://wa.me/919512792875"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        <WhatsApp
+                          sx={{
+                            color: "#1e40af",
+                            fontSize: { xs: 20, sm: 24 },
+                          }}
+                        />
+                      </a>
                     </Box>
                     <Box
                       sx={{
@@ -321,10 +343,10 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ 
-                          color: "#1e293b", 
-                          mb: 0.5, 
-                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        sx={{
+                          color: "#1e293b",
+                          mb: 0.5,
+                          fontSize: { xs: "1rem", sm: "1.1rem" },
                         }}
                       >
                         Phone Number
@@ -333,14 +355,14 @@ export default function ContactForm() {
                         variant="body1"
                         sx={{ color: "#1e40af", fontSize: ".9rem" }}
                       >
-                       <a
-  href="https://wa.me/919512792875"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{ color: "inherit", textDecoration: "none" }}
->
-  +91 9512792875
-</a>
+                        <a
+                          href="https://wa.me/919512792875"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          +91 9512792875
+                        </a>
                       </Typography>
                       <Typography
                         variant="body2"
@@ -351,9 +373,9 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                  <Box 
-                    display="flex" 
-                    alignItems="flex-start" 
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
                     gap={{ xs: 2, sm: 3 }}
                     sx={{
                       width: "100%",
@@ -372,7 +394,9 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <LocationOn sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
+                      <LocationOn
+                        sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }}
+                      />
                     </Box>
                     <Box
                       sx={{
@@ -384,10 +408,10 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ 
-                          color: "#1e293b", 
-                          mb: 0.5, 
-                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        sx={{
+                          color: "#1e293b",
+                          mb: 0.5,
+                          fontSize: { xs: "1rem", sm: "1.1rem" },
                         }}
                       >
                         Office Address
@@ -403,9 +427,9 @@ export default function ContactForm() {
                     </Box>
                   </Box>
 
-                  <Box 
-                    display="flex" 
-                    alignItems="flex-start" 
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
                     gap={{ xs: 2, sm: 3 }}
                     sx={{
                       width: "100%",
@@ -424,7 +448,9 @@ export default function ContactForm() {
                         flexShrink: 0,
                       }}
                     >
-                      <Business sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }} />
+                      <Business
+                        sx={{ color: "#1e40af", fontSize: { xs: 20, sm: 24 } }}
+                      />
                     </Box>
                     <Box
                       sx={{
@@ -436,10 +462,10 @@ export default function ContactForm() {
                       <Typography
                         variant="h6"
                         fontWeight={600}
-                        sx={{ 
-                          color: "#1e293b", 
-                          mb: 0.5, 
-                          fontSize: { xs: "1rem", sm: "1.1rem" } 
+                        sx={{
+                          color: "#1e293b",
+                          mb: 0.5,
+                          fontSize: { xs: "1rem", sm: "1.1rem" },
                         }}
                       >
                         Business Hours
@@ -485,18 +511,18 @@ export default function ContactForm() {
                 variant="h5"
                 fontWeight={600}
                 gutterBottom
-                sx={{ 
-                  color: "#1e293b", 
-                  fontSize: { xs: "1.1rem", sm: "1.2rem" } 
+                sx={{
+                  color: "#1e293b",
+                  fontSize: { xs: "1.1rem", sm: "1.2rem" },
                 }}
               >
                 Need Immediate Assistance?
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ 
-                  color: "#64748b", 
-                  mb: 3, 
+                sx={{
+                  color: "#64748b",
+                  mb: 3,
                   fontSize: "1rem",
                   px: { xs: 1, sm: 0 }, // Mobile text padding
                 }}
@@ -528,8 +554,8 @@ export default function ContactForm() {
                     textAlign: "center",
                   }}
                 >
-                  <Mail sx={{ flexShrink: 0 }} /> 
-                  <a 
+                  <Mail sx={{ flexShrink: 0 }} />
+                  <a
                     href="mailto:askgosufamilystore@gmail.com"
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
